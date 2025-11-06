@@ -1,29 +1,85 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sergei Tikhonov</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Personal Website</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0 auto;
+      max-width: 780px;
+      padding: 60px 20px;
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #111;
+      background: #fafafa;
+    }
+    .intro {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+    .intro img {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    .intro-text {
+      flex: 1;
+      min-width: 240px;
+    }
+    h1 {
+      font-size: 28px;
+      margin: 0 0 6px 0;
+      font-weight: 600;
+    }
+    p, li { margin: 12px 0; }
+    ul { padding-left: 20px; }
+    h2 {
+      font-size: 18px;
+      margin-top: 28px;
+      font-weight: 600;
+    }
+    a { color: #0077cc; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    footer {
+      margin-top: 40px;
+      font-size: 14px;
+      color: #555;
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Sergei Tikhonov</h1>
-    <p>Hi! I am a second-year student at the <a href="#">University of Chicago</a>.</p>
-    <p>Previously, I spent four wonderful years at Higher School of Economics studying Economics and Computer Science. There I had the absolute pleasure to work with <a href="#">Nikolay Pilnik</a>, working on Dynamic Optimization problems
-    <p>Here is my (mostly-up-to-date) <a href="https://github.com/sstikhonov/sstikhonov.github.io/blob/main/CV_PhD.pdf">CV</a>.</p>
-    <p>The best way to reach me is my email: tikhonov at uchicago dot edu</p>
-    <p>I worked on Probabilistic Graphical Models at the <a href="https://stat.uchicago.edu/">Department of Statistics</a> and on the applications of non-parametric statistics at <a href="https://www.chicagobooth.edu/faculty/academic-areas/econometrics-and-statistics">Booth Business School</a>.</p>
-    <p>I also actively worked on the applications of Numerical Analysis to solving Partial Differential Equations in <a href="https://optiver.com/">Optiver</a></p>
-  
-    <div class="social-links">
-      <a href="#" target="_blank">🔍</a>
-      <a href="https://github.com/sstikhonov/sstikhonov.github.io/commits?author=sstikhonov" target="_blank">GitHub</a>
-      <a href="https://www.linkedin.com/in/sstikhonov/" target="_blank">LinkedIn</a>
+  <div class="intro">
+    <img src="photo.jpg" alt="Headshot placeholder (replace photo.jpg)" />
+    <div class="intro-text">
+      <h1>Your Name</h1>
+      <p>I'm a first-year PhD student at the UT Austin, where I am advised by Arsen Vasilyan.</p>
+      <p>I aim to build effective algorithms by simplifying complexity and bringing the core mathematics into focus. More generally, I explore the algorithmic bedrock of machine learning — places where sharper math leads to new tools.</p>
     </div>
   </div>
-  <footer>
-    © 2024 Sergei Tikhoov
-  </footer>
+
+  <h2>My research interests include</h2>
+  <ul>
+    <li>Statistical and Computational Learning Theory</li>
+    <li>Flow and Diffusion models for Generative Modeling</li>
+    <li>Probabilistic Graphical Modeling and Variational Inference</li>
+    <li>Minimax and Le Cam Theory</li>
+  </ul>
+
+  <p>Previously, I earned my master's degree at the University of Chicago and bachelor's degree at the HSE university in Moscow. At UChicago, I had the privilage of collaborating with Aaron Schein on probabilistic graphical models.</p>
+  <p>I also spent 3 beautiful months in Optiver, working with the Head of Quantitative Research Artur Swiech on speeding up the numerical algorithms.</p>
+  <p>Outside of research, I enjoy playing chess and travelling around the world.</p>
+
+  <footer>© <span id="y"></span> Your Name</footer>
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
