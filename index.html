@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Personal Website</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
   <style>
     body {
       margin: 0 auto;
@@ -16,6 +17,7 @@
       color: #111;
       background: #fafafa;
     }
+
     .intro {
       display: flex;
       align-items: center;
@@ -23,6 +25,7 @@
       flex-wrap: wrap;
       margin-bottom: 32px;
     }
+
     .intro img {
       width: 160px;
       height: 160px;
@@ -30,28 +33,60 @@
       object-fit: cover;
       flex-shrink: 0;
     }
+
     .intro-text {
       flex: 1;
       min-width: 240px;
     }
+
     h1 {
       font-size: 28px;
       margin: 0 0 6px 0;
       font-weight: 600;
     }
+
     p, li { margin: 12px 0; }
     ul { padding-left: 20px; }
+
     h2 {
       font-size: 18px;
       margin-top: 28px;
       font-weight: 600;
     }
+
     a { color: #0077cc; text-decoration: none; }
     a:hover { text-decoration: underline; }
+
     footer {
       margin-top: 40px;
       font-size: 14px;
       color: #555;
+      text-align: center;
+    }
+
+    /* --- Social Icon Buttons --- */
+    .social-links {
+      margin-bottom: 12px;
+    }
+
+    .social-links a {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      margin: 0 6px;
+      transition: transform 0.2s;
+    }
+
+    .social-links a img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 6px;
+    }
+
+    .social-links a:hover {
+      transform: translateY(-3px);
+      opacity: 0.85;
     }
   </style>
 </head>
@@ -77,7 +112,23 @@
   <p>I also spent 3 beautiful months in Optiver, working with the Head of Quantitative Research Artur Swiech on speeding up the numerical algorithms.</p>
   <p>Outside of research, I enjoy playing chess and travelling around the world.</p>
 
-  <footer>© <span id="y"></span> Sergei Tikhonov</footer>
+  <footer>
+    <div class="social-links">
+      <a href="https://github.com/sstikhonov" target="_blank" aria-label="GitHub">
+        <img src="github.png" alt="GitHub icon">
+      </a>
+      <a href="https://www.linkedin.com/in/sstikhonov" target="_blank" aria-label="LinkedIn">
+        <img src="linkedin.png" alt="LinkedIn icon">
+      </a>
+      <!-- Optional Google Scholar example:
+      <a href="https://scholar.google.com/citations?user=yourid" target="_blank" aria-label="Google Scholar">
+        <img src="google-scholar.png" alt="Google Scholar icon">
+      </a>
+      -->
+    </div>
+    © <span id="y"></span> Sergei Tikhonov
+  </footer>
+
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
   </script>
