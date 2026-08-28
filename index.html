@@ -1,0 +1,679 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Sergei Tikhonov — PhD Candidate at the University of Texas at Austin working in computational learning theory.">
+  <meta name="theme-color" content="#fafaf8">
+  <title>Sergei Tikhonov</title>
+
+  <!--
+    Before publishing:
+    1. Put your photo next to this file and name it portrait.jpg.
+    2. Replace the Google Scholar URL below with your profile URL when ready.
+    3. Edit any text marked "Update this".
+  -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&amp;family=Space+Mono:ital,wght@0,400;1,400&amp;display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      color-scheme: light dark;
+      --paper: light-dark(#fafaf8, #181816);
+      --ink: light-dark(#1a1a1a, #efeee9);
+      --muted: light-dark(#66645f, #aaa8a0);
+      --orange: light-dark(#bf5700, #ec8b4e);
+      --orange-hover: light-dark(#8f4100, #f2a06e);
+      --rule: light-dark(#e0ddd8, #3c3b37);
+      --photo: light-dark(#d9d6cf, #30312f);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Space Mono", "Courier New", monospace;
+      font-size: 15px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--orange);
+      text-decoration: none;
+      text-underline-offset: 3px;
+    }
+
+    a:hover {
+      color: var(--orange-hover);
+    }
+
+    a:focus-visible {
+      outline: 2px solid var(--orange);
+      outline-offset: 4px;
+      border-radius: 2px;
+    }
+
+    .page {
+      width: min(100%, 1008px);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      min-height: 48px;
+      border-bottom: 1px solid var(--rule);
+      font-size: 0.8rem;
+    }
+
+    .nav-home {
+      color: var(--ink);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+    }
+
+    .nav-links a:hover {
+      color: var(--orange);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 264px minmax(0, 1fr);
+      gap: 48px;
+      align-items: start;
+      padding: 56px 0 48px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .profile {
+      width: 260px;
+      text-align: center;
+    }
+
+    .portrait {
+      position: relative;
+      width: 260px;
+      height: 260px;
+      overflow: hidden;
+      border: 3px solid var(--paper);
+      border-radius: 6px;
+      background:
+        linear-gradient(145deg, transparent 0 55%, color-mix(in srgb, var(--orange) 22%, transparent) 56%),
+        var(--photo);
+      box-shadow: 0 2px 12px color-mix(in srgb, var(--ink) 15%, transparent);
+    }
+
+    .portrait img {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .portrait-placeholder {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      color: var(--muted);
+      font-size: 0.7rem;
+    }
+
+    .profile h1,
+    .section h2,
+    .theme h3 {
+      margin: 0;
+      font-family: "Source Serif 4", Georgia, serif;
+      font-weight: 500;
+    }
+
+    .profile h1 {
+      margin-top: 15px;
+      font-size: 1.72rem;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+
+    .subtitle {
+      margin: 5px 0 0;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    .affiliation {
+      margin: 4px 0 0;
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: 0.96rem;
+      white-space: nowrap;
+    }
+
+    .email {
+      margin: 4px 0 0;
+      font-size: 0.72rem;
+    }
+
+    .statement {
+      max-width: 600px;
+      margin: 0;
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: 1.48rem;
+      line-height: 1.38;
+    }
+
+    .bio {
+      max-width: 620px;
+      margin: 16px 0 0;
+      font-size: 0.9rem;
+      line-height: 1.72;
+    }
+
+    .contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-top: 16px;
+      font-size: 0.82rem;
+    }
+
+    .separator {
+      color: var(--rule);
+    }
+
+    .section {
+      display: grid;
+      grid-template-columns: 166px minmax(0, 1fr);
+      gap: 42px;
+      padding: 39px 0 42px;
+      border-bottom: 1px solid var(--rule);
+      scroll-margin-top: 18px;
+    }
+
+    .section-heading {
+      padding-top: 1px;
+    }
+
+    .section h2 {
+      font-size: 1.28rem;
+      line-height: 1.45;
+    }
+
+    .section-index {
+      display: block;
+      margin-top: 7px;
+      color: var(--muted);
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+    }
+
+    .theme h3 {
+      font-size: 1.14rem;
+      line-height: 1.4;
+    }
+
+    .theme p {
+      margin: 12px 0 0;
+      font-size: 0.9rem;
+      line-height: 1.72;
+    }
+
+    .news-list {
+      border-top: 1px solid var(--rule);
+    }
+
+    .news-item {
+      display: grid;
+      grid-template-columns: 82px 1fr;
+      gap: 22px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--rule);
+      font-size: 0.84rem;
+      line-height: 1.65;
+    }
+
+    .news-item time {
+      color: var(--muted);
+      font-size: 0.73rem;
+      white-space: nowrap;
+    }
+
+    .year-group {
+      display: grid;
+      grid-template-columns: 64px 1fr;
+      border-top: 1px solid var(--rule);
+    }
+
+    .year {
+      margin: 0;
+      padding-top: 19px;
+      color: var(--muted);
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: 1.08rem;
+      font-weight: 400;
+    }
+
+    .paper {
+      padding: 18px 0 20px;
+    }
+
+    .paper-title {
+      margin: 0;
+      font-size: 0.92rem;
+      font-weight: 400;
+      line-height: 1.48;
+    }
+
+    .paper-title a {
+      color: var(--ink);
+    }
+
+    .paper-title a:hover {
+      color: var(--orange);
+    }
+
+    .authors {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    .venue {
+      margin: 2px 0 0;
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: 0.91rem;
+      font-style: italic;
+    }
+
+    .contribution {
+      margin: 9px 0 0;
+      color: var(--muted);
+      font-size: 0.82rem;
+      line-height: 1.65;
+    }
+
+    .paper-links {
+      margin-top: 9px;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+    }
+
+    .cv-group + .cv-group {
+      margin-top: 30px;
+    }
+
+    .cv-subheading {
+      margin: 0 0 10px;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .cv-row {
+      display: grid;
+      gap: 18px;
+      align-items: baseline;
+      padding: 4px 0;
+      font-size: 0.82rem;
+    }
+
+    .cv-education {
+      grid-template-columns: 160px minmax(0, 1fr) auto;
+    }
+
+    .institution {
+      display: flex;
+      align-items: center;
+      min-width: 0;
+      color: var(--muted);
+    }
+
+    .school-mark {
+      display: inline-grid;
+      place-items: center;
+      width: 19px;
+      height: 19px;
+      flex: 0 0 19px;
+      margin-right: 8px;
+      border: 1px solid currentColor;
+      border-radius: 50%;
+      font-size: 0.42rem;
+      line-height: 1;
+      letter-spacing: -0.05em;
+    }
+
+    .ut-mark {
+      color: #bf5700;
+    }
+
+    .uchicago-mark {
+      color: #800000;
+    }
+
+    .hse-mark {
+      color: #0050cf;
+      font-size: 0.34rem;
+    }
+
+    .cv-year,
+    .cv-role,
+    .cv-meta {
+      color: var(--muted);
+      font-size: 0.72rem;
+      white-space: nowrap;
+    }
+
+    .cv-experience {
+      grid-template-columns: 32px minmax(0, 1fr) 174px;
+    }
+
+    .cv-experience > span:nth-child(2) {
+      white-space: nowrap;
+    }
+
+    .footer {
+      padding: 25px 0 31px;
+      color: var(--muted);
+      font-size: 0.7rem;
+      text-align: center;
+    }
+
+    .codex {
+      color: var(--orange);
+    }
+
+    @media (max-width: 760px) {
+      .nav-links {
+        gap: 15px;
+      }
+
+      .hero {
+        grid-template-columns: 234px minmax(0, 1fr);
+        gap: 30px;
+      }
+
+      .profile,
+      .portrait {
+        width: 230px;
+      }
+
+      .portrait {
+        height: 230px;
+      }
+
+      .section {
+        grid-template-columns: 148px minmax(0, 1fr);
+        gap: 30px;
+      }
+
+      .cv-experience {
+        grid-template-columns: 32px minmax(0, 1fr);
+        gap: 3px 18px;
+      }
+
+      .cv-experience .cv-meta {
+        grid-column: 2;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .cv-education {
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 3px 18px;
+      }
+
+      .cv-education .institution {
+        grid-column: 1;
+      }
+
+      .cv-education .cv-year {
+        grid-column: 2;
+        grid-row: 1;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .page {
+        padding: 0 18px;
+      }
+
+      .nav {
+        gap: 14px;
+        min-height: 44px;
+      }
+
+      .nav-links {
+        gap: 12px;
+        font-size: 0.74rem;
+      }
+
+      .hero,
+      .section {
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
+
+      .hero {
+        padding: 35px 0 38px;
+      }
+
+      .profile,
+      .portrait {
+        width: 260px;
+      }
+
+      .profile {
+        margin: 0 auto;
+      }
+
+      .portrait {
+        height: 260px;
+      }
+
+      .section {
+        padding: 32px 0 35px;
+      }
+
+      .section-heading {
+        display: flex;
+        align-items: baseline;
+      }
+
+      .section-index {
+        display: inline;
+        margin: 0 0 0 9px;
+      }
+
+      .year-group {
+        grid-template-columns: 1fr;
+      }
+
+      .year {
+        padding-bottom: 2px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .cv-experience > span:nth-child(2) {
+        white-space: normal;
+      }
+    }
+
+    @media (max-width: 390px) {
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 4px;
+        padding: 9px 0 11px;
+      }
+
+      .news-item {
+        grid-template-columns: 1fr;
+        gap: 2px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+    <header class="nav">
+      <a class="nav-home" href="#about">About</a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="#cv">CV</a>
+      </nav>
+    </header>
+
+    <section class="hero" id="about">
+      <div class="profile">
+        <div class="portrait">
+          <span class="portrait-placeholder">Add portrait.jpg</span>
+          <img src="portrait.jpg" alt="Portrait of Sergei Tikhonov" onerror="this.style.display='none'">
+        </div>
+        <h1>Sergei Tikhonov</h1>
+        <p class="subtitle">PhD Candidate</p>
+        <p class="affiliation"><a href="https://www.utexas.edu/">University of Texas at Austin</a></p>
+        <p class="email"><a href="mailto:tikhonov@utexas.edu">tikhonov@utexas.edu</a></p>
+      </div>
+
+      <div>
+        <p class="statement">About me</p>
+        <p class="bio">I am a PhD Candidate in Statistics at the University of Texas at Austin. My research is in computational learning theory.</p>
+        <div class="contact" aria-label="Academic links">
+          <!-- Update this Google Scholar search link with your profile URL when you have it. -->
+          <a href="https://scholar.google.com/scholar?q=%22Sergei+Tikhonov%22+learning">Google Scholar</a>
+          <span class="separator">·</span>
+          <a href="#cv">CV</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="research">
+      <div class="section-heading">
+        <h2>Research</h2>
+        <span class="section-index">01</span>
+      </div>
+      <article class="theme">
+        <h3>Computational learning theory</h3>
+        <p>I study efficient algorithms and statistical limits for learning structured functions under distributional assumptions, with a current focus on proper agnostic learning under Gaussian marginals.</p>
+      </article>
+    </section>
+
+    <section class="section" id="news">
+      <div class="section-heading">
+        <h2>News</h2>
+        <span class="section-index">02</span>
+      </div>
+      <div class="news-list">
+        <div class="news-item">
+          <time datetime="2026-05">May 2026</time>
+          <span>New preprint on proper agnostic learning of functions of halfspaces under Gaussian marginals.</span>
+        </div>
+        <!-- Update this: copy the news-item block above to add future news. -->
+      </div>
+    </section>
+
+    <section class="section" id="publications">
+      <div class="section-heading">
+        <h2>All publications</h2>
+        <span class="section-index">03</span>
+      </div>
+      <div class="year-group">
+        <h3 class="year">2026</h3>
+        <article class="paper">
+          <h4 class="paper-title">
+            <a href="https://arxiv.org/abs/2605.27594v1">Proper Agnostic Learning of Functions of Halfspaces under Gaussian Marginals</a>
+          </h4>
+          <p class="authors">Sergei Tikhonov, Arsen Vasilyan</p>
+          <p class="venue">arXiv preprint, 2026</p>
+          <p class="contribution">We created the first proper algorithm for agnostically learning Boolean functions of halfspaces under Gaussian marginals.</p>
+          <div class="paper-links">
+            <a href="https://arxiv.org/abs/2605.27594v1">Paper</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="cv">
+      <div class="section-heading">
+        <h2>CV</h2>
+        <span class="section-index">04</span>
+      </div>
+
+      <div>
+        <div class="cv-group">
+          <h3 class="cv-subheading">Education</h3>
+
+          <div class="cv-row cv-education">
+            <span>PhD Statistics</span>
+            <span class="institution"><span class="school-mark ut-mark" aria-hidden="true">UT</span>UT Austin</span>
+            <span class="cv-year">2025-</span>
+          </div>
+
+          <div class="cv-row cv-education">
+            <span>MS Applied Math</span>
+            <span class="institution"><span class="school-mark uchicago-mark" aria-hidden="true">C</span>University of Chicago</span>
+            <span class="cv-year">2023-25</span>
+          </div>
+
+          <div class="cv-row cv-education">
+            <span>BS Mathematics</span>
+            <span class="institution"><span class="school-mark hse-mark" aria-hidden="true">HSE</span>HSE University</span>
+            <span class="cv-year">2018-22</span>
+          </div>
+        </div>
+
+        <div class="cv-group">
+          <h3 class="cv-subheading">Academic Experience</h3>
+
+          <div class="cv-row cv-experience">
+            <span class="cv-role">TA</span>
+            <span>Elements of Statistics</span>
+            <span class="cv-meta">Spring 2026 · UT Austin</span>
+          </div>
+
+          <div class="cv-row cv-experience">
+            <span class="cv-role">TA</span>
+            <span>Probability and Statistical Inference</span>
+            <span class="cv-meta">Fall 2025 · UT Austin</span>
+          </div>
+
+          <div class="cv-row cv-experience">
+            <span class="cv-role">TA</span>
+            <span>Stochastic Processes</span>
+            <span class="cv-meta">Fall 2024 · UChicago</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">2026 · Sergei Tikhonov · Website was created by <span class="codex">Codex</span></footer>
+  </main>
+</body>
+</html>
