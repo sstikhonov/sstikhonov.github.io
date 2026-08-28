@@ -372,6 +372,10 @@
       grid-template-columns: 32px minmax(0, 1fr) 174px;
     }
 
+    .cv-meta {
+      text-align: right;
+    }
+
     .cv-experience > span:nth-child(2) {
       white-space: nowrap;
     }
@@ -418,6 +422,7 @@
 
       .cv-experience .cv-meta {
         grid-column: 2;
+        text-align: left;
       }
     }
 
@@ -574,13 +579,7 @@
       <div class="news-list">
         <div class="news-item">
           <time datetime="2026-05">May 2026</time>
-          <span>
-            New preprint with
-            <a href="https://www.vasilyan.net/">Arsen Vasilyan</a>
-            on the first algorithm for proper agnostic learning of functions of halfspaces
-            under Gaussian marginals was posted on
-            <a href="https://arxiv.org/abs/2605.27594v1">arXiv</a>.
-          </span>
+          <span>New preprint on proper agnostic learning of functions of halfspaces under Gaussian marginals.</span>
         </div>
         <!-- Update this: copy the news-item block above to add future news. -->
       </div>
@@ -619,7 +618,7 @@
 
           <div class="cv-row cv-education">
             <span>PhD Statistics</span>
-            <span class="institution"><img class="school-icon" src="data:image/png;base64,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" alt="" aria-hidden="true">University of Texas at Austin</span>
+            <span class="institution"><img class="school-icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAAXNSR0IArs4c6QAAAkxQTFRFR3BMv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAv1cAoC0zdwAAAMR0Uk5TAAYJnVSeeV+4vCcQFbSHm7sFtwRSMQhgsxKqo7WZbxhIcyPDlQGlsa25vkW6Ag5bJbZVcRyWfl6YXKdyj44HgIhTNLKJTB9HoBo8XRNEmrAqCiADindlQH1YK+07dX+kF6hwKOELwMJ6l1asxW5hzsgUoq85ZhZkzKk4pqskzR5ZksHmTjPuWjBq24Im2BEPkE/HxFA+aCFs6Hzsn+OGQsbSe2lLk8riUWtDyW02Yg0/L01K3B3woYF4IuAbN9Upg4yENVFHSBAAAAKvSURBVDiNddJVVyNBEAbQgok7Ie4JISEhRoIEd3d3d3eHxd193d3dff/Ydh6WDLL1UKervtsP02cAUPnyydEYd2R1rvz9Yvli+dzbCxRiNDnODP/Ky+8KJSVBTZ4vHltYGCh+HaJOuCq7xBUcAw9OQC5AfuorVShvP/0NP9Ab7cJ8PN2AqvMFSBJFlJDkGCl6hkJDSy0ecFpRj83m8QYfKayx035kNMacAAWo+4+/DD2sq7Tb7X08NLY044DhMuoPqzMTrY5P9vmdFCEaLzbhAKUTddWH9GG1k60QhmIENJKNOMB0XXlXqy1oiYwgxcxM2NDIM+GAXmgRixk0jVLcy8io0fyoycigt3HdwEv0oHukx4fD9JM65VI/GXXvSfeta1Qc6Gd3EZLT+LSkoc8axhSNn5ZM6NJScECSCJbndNeRUOrqL4R08Be5n9pbEgvJWWWuYxARvSnUy1VwNz7qGPhKQ+LWqtbNgqjAMElelGf+ZHDws7Z272MA98ILjSkVGqKstu4wjFmd8w0zklYwdw4lLAIrILJRtVeUKwjZ3Wn8xWQRqmJwIESXGsFUb8IfjN7IPoAtdfa2EruDAwNUzU/Ttg2O2Ipwdj0cRVKqAg03cGDImMkiin6b9xsKWA3TEKwnfqyYDcQBM1Hhn0UlKSsdUR4rJTWFJmdxkQ73EQDWeMtSPDGUhpb561Zif2nuxDA+h9Tmx08lAaMq1zlzlDk+WHEz7wSA2zp+sMkZLgbYdAQZSDnY9ZM5THWU5pGa2uU0W1AYpzApscd2CkD6/ZxKTNZa1xnEzVJMdhSdzsEjUpYW3idiy7OrHWN6reAMALqUu8woMwTUM8r0kt6zOQBDesGfTiBYDnZrleflAFushoSvyrUvEeLzc/RnLW1sfF8le/wvR7VMnY07ufkLjReWN88qmLUAAAAASUVORK5CYII=" alt="" aria-hidden="true">UT Austin</span>
             <span class="cv-year">2025-</span>
           </div>
 
@@ -638,6 +637,12 @@
 
         <div class="cv-group">
           <h3 class="cv-subheading">Academic Experience</h3>
+
+          <div class="cv-row cv-experience">
+            <span class="cv-role">RA</span>
+            <span>Department of Statistics</span>
+            <span class="cv-meta">Fall 2026 · UT Austin</span>
+          </div>
 
           <div class="cv-row cv-experience">
             <span class="cv-role">TA</span>
