@@ -1,96 +1,103 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Sergei Tikhonov — PhD Candidate at the University of Texas at Austin working in computational learning theory.">
-  <meta name="theme-color" content="#fafaf8">
-  <title>Sergei Tikhonov</title>
+    <section class="section" id="research">
+      <div class="section-heading">
+        <h2>Research</h2>
+        <span class="section-index">01</span>
+      </div>
+      <article class="theme">
+        <h3>Computational learning theory</h3>
+        <p>I study efficient algorithms and statistical limits for learning structured functions under distributional assumptions, with a current focus on proper agnostic learning under Gaussian marginals.</p>
+      </article>
+    </section>
 
-  <!--
-    Before publishing:
-    1. Put your photo next to this file and name it portrait.jpg.
-    2. Replace the Google Scholar URL below with your profile URL when ready.
-    3. Edit any text marked "Update this".
-  -->
+    <section class="section" id="news">
+      <div class="section-heading">
+        <h2>News</h2>
+        <span class="section-index">02</span>
+      </div>
+      <div class="news-list">
+        <div class="news-item">
+          <time datetime="2026-05">May 2026</time>
+          <span>New preprint on proper agnostic learning of functions of halfspaces under Gaussian marginals.</span>
+        </div>
+        <!-- Update this: copy the news-item block above to add future news. -->
+      </div>
+    </section>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&family=Space+Mono:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    <section class="section" id="publications">
+      <div class="section-heading">
+        <h2>All publications</h2>
+        <span class="section-index">03</span>
+      </div>
+      <div class="year-group">
+        <h3 class="year">2026</h3>
+        <article class="paper">
+          <h4 class="paper-title">
+            <a href="https://arxiv.org/abs/2605.27594v1">Proper Agnostic Learning of Functions of Halfspaces under Gaussian Marginals</a>
+          </h4>
+          <p class="authors">Sergei Tikhonov, Arsen Vasilyan</p>
+          <p class="venue">arXiv preprint, 2026</p>
+          <p class="contribution">We created the first proper algorithm for agnostically learning Boolean functions of halfspaces under Gaussian marginals.</p>
+          <div class="paper-links">
+            <a href="https://arxiv.org/abs/2605.27594v1">Paper</a>
+          </div>
+        </article>
+      </div>
+    </section>
 
-  <style>
-    :root {
-      color-scheme: light dark;
-      --paper: light-dark(#fafaf8, #181816);
-      --ink: light-dark(#1a1a1a, #efeee9);
-      --muted: light-dark(#66645f, #aaa8a0);
-      --orange: light-dark(#bf5700, #ec8b4e);
-      --orange-hover: light-dark(#8f4100, #f2a06e);
-      --rule: light-dark(#e0ddd8, #3c3b37);
-      --photo: light-dark(#d9d6cf, #30312f);
-    }
+    <section class="section" id="cv">
+      <div class="section-heading">
+        <h2>CV</h2>
+        <span class="section-index">04</span>
+      </div>
 
-    * {
-      box-sizing: border-box;
-    }
+      <div>
+        <div class="cv-group">
+          <h3 class="cv-subheading">Education</h3>
 
-    html {
-      scroll-behavior: smooth;
-    }
+          <div class="cv-row cv-education">
+            <span>PhD Statistics</span>
+            <span class="institution"><span class="school-mark ut-mark" aria-hidden="true">UT</span>UT Austin</span>
+            <span class="cv-year">2025-</span>
+          </div>
 
-    body {
-      margin: 0;
-      overflow-x: hidden;
-      background: var(--paper);
-      color: var(--ink);
-      font-family: "Space Mono", "Courier New", monospace;
-      font-size: 15px;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
+          <div class="cv-row cv-education">
+            <span>MS Applied Math</span>
+            <span class="institution"><span class="school-mark uchicago-mark" aria-hidden="true">C</span>University of Chicago</span>
+            <span class="cv-year">2023-25</span>
+          </div>
 
-    a {
-      color: var(--orange);
-      text-decoration: none;
-      text-underline-offset: 3px;
-    }
+          <div class="cv-row cv-education">
+            <span>BS Mathematics</span>
+            <span class="institution"><span class="school-mark hse-mark" aria-hidden="true">HSE</span>HSE University</span>
+            <span class="cv-year">2018-22</span>
+          </div>
+        </div>
 
-    a:hover {
-      color: var(--orange-hover);
-    }
+        <div class="cv-group">
+          <h3 class="cv-subheading">Academic Experience</h3>
 
-    a:focus-visible {
-      outline: 2px solid var(--orange);
-      outline-offset: 4px;
-      border-radius: 2px;
-    }
+          <div class="cv-row cv-experience">
+            <span class="cv-role">TA</span>
+            <span>Elements of Statistics</span>
+            <span class="cv-meta">Spring 2026 · UT Austin</span>
+          </div>
 
-    .page {
-      width: min(100%, 1008px);
-      margin: 0 auto;
-      padding: 0 24px;
-    }
+          <div class="cv-row cv-experience">
+            <span class="cv-role">TA</span>
+            <span>Probability and Statistical Inference</span>
+            <span class="cv-meta">Fall 2025 · UT Austin</span>
+          </div>
 
-    .nav {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      min-height: 48px;
-      border-bottom: 1px solid var(--rule);
-      font-size: 0.8rem;
-    }
+          <div class="cv-row cv-experience">
+            <span class="cv-role">TA</span>
+            <span>Stochastic Processes</span>
+            <span class="cv-meta">Fall 2024 · UChicago</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    .nav-home {
-      color: var(--ink);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 24px;
-    }
-
-    .nav-links a {
-      color: var(--muted);
-    }
-
-    .nav-links a:hover {
+    <footer class="footer">2026 · Sergei Tikhonov · Website was created by <span class="codex">Codex</span></footer>
+  </main>
+</body>
+</html>
