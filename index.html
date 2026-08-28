@@ -10,8 +10,7 @@
   <!--
     Before publishing:
     1. Put your photo next to this file and name it portrait.jpg.
-    2. Replace the Google Scholar URL below with your profile URL when ready.
-    3. Edit any text marked "Update this".
+    2. Edit any text marked "Update this".
   -->
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -170,11 +169,6 @@
       white-space: nowrap;
     }
 
-    .email {
-      margin: 4px 0 0;
-      font-size: 0.72rem;
-    }
-
     .statement {
       max-width: 600px;
       margin: 0;
@@ -193,10 +187,22 @@
     .contact {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 14px;
       align-items: center;
       margin-top: 16px;
       font-size: 0.82rem;
+    }
+
+    .contact a {
+      display: inline-flex;
+      gap: 4px;
+      align-items: center;
+    }
+
+    .contact svg {
+      width: 14px;
+      height: 14px;
+      flex-shrink: 0;
     }
 
     .separator {
@@ -545,14 +551,33 @@
         <h1>Sergei Tikhonov</h1>
         <p class="subtitle">PhD Candidate</p>
         <p class="affiliation"><a href="https://www.utexas.edu/">University of Texas at Austin</a></p>
-        <p class="email"><a href="mailto:tikhonov@utexas.edu">tikhonov@utexas.edu</a></p>
       </div>
 
       <div>
         <p class="statement">About me</p>
         <p class="bio">I am a PhD Candidate in Statistics at the University of Texas at Austin. My research is in computational learning theory.</p>
-        <div class="contact" aria-label="Academic links">
-          <a href="https://scholar.google.com/citations?user=8LWzpOkAAAAJ&amp;hl=en&amp;oi=sra">Google Scholar</a>
+        <div class="contact" aria-label="Contact and academic links">
+          <a href="mailto:tikhonov@utexas.edu">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+            </svg>
+            Email
+          </a>
+          <span class="separator">·</span>
+          <a href="https://scholar.google.com/citations?user=8LWzpOkAAAAJ&amp;hl=en&amp;oi=sra" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+              <path d="M5.242 13.769 0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"></path>
+            </svg>
+            Google Scholar
+          </a>
+          <span class="separator">·</span>
+          <a href="https://github.com/sstikhonov/sstikhonov.github.io/tree/main" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"></path>
+            </svg>
+            GitHub
+          </a>
           <span class="separator">·</span>
           <a href="#cv">CV</a>
         </div>
@@ -586,7 +611,7 @@
 
     <section class="section" id="publications">
       <div class="section-heading">
-        <h2>All publications</h2>
+        <h2>Publications</h2>
         <span class="section-index">03</span>
       </div>
       <div class="year-group">
