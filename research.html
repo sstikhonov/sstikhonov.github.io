@@ -1,0 +1,510 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Research and publications of Sergei Tikhonov in computational learning theory.">
+  <meta name="theme-color" content="#fafaf8">
+  <title>Research — Sergei Tikhonov</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&amp;family=Space+Mono:ital,wght@0,400;1,400&amp;display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      color-scheme: light dark;
+      --paper: light-dark(#fafaf8, #181816);
+      --ink: light-dark(#1a1a1a, #efeee9);
+      --muted: light-dark(#66645f, #aaa8a0);
+      --orange: light-dark(#bf5700, #ec8b4e);
+      --orange-hover: light-dark(#8f4100, #f2a06e);
+      --rule: light-dark(#e0ddd8, #3c3b37);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Space Mono", "Courier New", monospace;
+      font-size: 15px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--orange);
+      text-decoration: none;
+      text-underline-offset: 3px;
+    }
+
+    a:hover {
+      color: var(--orange-hover);
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid var(--orange);
+      outline-offset: 4px;
+      border-radius: 2px;
+    }
+
+    .page {
+      width: min(100%, 1008px);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      min-height: 48px;
+      border-bottom: 1px solid var(--rule);
+      font-size: 0.8rem;
+    }
+
+    .nav-home {
+      color: var(--ink);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+    }
+
+    .nav-links a:hover,
+    .nav-links .nav-current {
+      color: var(--orange);
+    }
+
+    .symbol-library {
+      position: absolute;
+      width: 0;
+      height: 0;
+      overflow: hidden;
+    }
+
+    .section {
+      display: grid;
+      grid-template-columns: 166px minmax(0, 1fr);
+      gap: 42px;
+      padding: 45px 0 48px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .intro {
+      padding-top: 56px;
+      padding-bottom: 55px;
+    }
+
+    .section-heading {
+      padding-top: 1px;
+    }
+
+    .section h1,
+    .section h2,
+    .research-copy h2 {
+      margin: 0;
+      font-family: "Source Serif 4", Georgia, serif;
+      font-weight: 500;
+    }
+
+    .section h1,
+    .section h2 {
+      font-size: 1.28rem;
+      line-height: 1.45;
+    }
+
+    .section-index {
+      display: block;
+      margin-top: 7px;
+      color: var(--muted);
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+    }
+
+    .research-copy h2 {
+      font-size: 1.72rem;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+    }
+
+    .research-copy p {
+      max-width: 670px;
+      margin: 16px 0 0;
+      font-size: 0.9rem;
+      line-height: 1.75;
+    }
+
+    .filter-label {
+      margin: 0 0 10px;
+      color: var(--muted);
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .category-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 24px;
+      padding-bottom: 17px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .filter-button {
+      display: inline-flex;
+      gap: 7px;
+      align-items: center;
+      margin: 0;
+      padding: 4px 0 3px;
+      border: 0;
+      border-bottom: 1px solid transparent;
+      border-radius: 0;
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      font: inherit;
+      font-size: 0.74rem;
+      line-height: 1.5;
+    }
+
+    .filter-button:hover {
+      color: var(--ink);
+    }
+
+    .filter-button[aria-pressed="true"] {
+      border-bottom-color: var(--orange);
+      color: var(--orange);
+    }
+
+    .category-icon {
+      width: 17px;
+      height: 17px;
+      flex: 0 0 17px;
+      overflow: visible;
+    }
+
+    .paper {
+      display: grid;
+      grid-template-columns: 132px minmax(0, 1fr);
+      gap: 24px;
+      padding: 22px 0 24px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .paper-category {
+      display: inline-flex;
+      gap: 7px;
+      align-items: center;
+      align-self: start;
+      color: var(--muted);
+      font-size: 0.7rem;
+      line-height: 1.45;
+    }
+
+    .paper-title {
+      margin: 0;
+      font-size: 0.92rem;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    .paper-title a {
+      color: var(--ink);
+    }
+
+    .paper-title a:hover {
+      color: var(--orange);
+    }
+
+    .authors {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    .venue {
+      margin: 2px 0 0;
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: 0.91rem;
+      font-style: italic;
+    }
+
+    .contribution {
+      margin: 9px 0 0;
+      color: var(--muted);
+      font-size: 0.82rem;
+      line-height: 1.65;
+    }
+
+    .paper-links {
+      margin-top: 9px;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+    }
+
+    .empty-state {
+      margin: 0;
+      padding: 28px 0 7px;
+      color: var(--muted);
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: 1rem;
+    }
+
+    .footer {
+      padding: 25px 0 31px;
+      color: var(--muted);
+      font-size: 0.7rem;
+      text-align: center;
+    }
+
+    .codex {
+      color: var(--orange);
+    }
+
+    [hidden] {
+      display: none !important;
+    }
+
+    @media (max-width: 760px) {
+      .nav-links {
+        gap: 15px;
+      }
+
+      .section {
+        grid-template-columns: 148px minmax(0, 1fr);
+        gap: 30px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .page {
+        padding: 0 18px;
+      }
+
+      .nav {
+        gap: 14px;
+        min-height: 44px;
+      }
+
+      .nav-links {
+        gap: 12px;
+        font-size: 0.74rem;
+      }
+
+      .section {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        padding: 32px 0 35px;
+      }
+
+      .intro {
+        padding-top: 38px;
+        padding-bottom: 39px;
+      }
+
+      .section-heading {
+        display: flex;
+        align-items: baseline;
+      }
+
+      .section-index {
+        display: inline;
+        margin: 0 0 0 9px;
+      }
+
+      .paper {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+    }
+
+    @media (max-width: 390px) {
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 4px;
+        padding: 9px 0 11px;
+      }
+
+      .category-filters {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 4px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+    <header class="nav">
+      <a class="nav-home" href="index.html#about">About</a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a class="nav-current" href="research.html" aria-current="page">Research</a>
+        <a href="index.html#publications">Publications</a>
+        <a href="index.html#cv">CV</a>
+      </nav>
+    </header>
+
+    <svg class="symbol-library" aria-hidden="true" focusable="false">
+      <defs>
+        <symbol id="icon-robust-statistics" viewBox="0 0 16 16">
+          <g fill="currentColor" stroke="none">
+            <circle cx="4.4" cy="5.2" r=".52"></circle>
+            <circle cx="6" cy="5.2" r=".52"></circle>
+            <circle cx="7.6" cy="5.2" r=".52"></circle>
+            <circle cx="3.4" cy="6.6" r=".52"></circle>
+            <circle cx="5.1" cy="6.6" r=".52"></circle>
+            <circle cx="6.8" cy="6.6" r=".52"></circle>
+            <circle cx="8.4" cy="6.6" r=".52"></circle>
+            <circle cx="3" cy="8" r=".52"></circle>
+            <circle cx="4.6" cy="8" r=".52"></circle>
+            <circle cx="6.2" cy="8" r=".52"></circle>
+            <circle cx="7.8" cy="8" r=".52"></circle>
+            <circle cx="9" cy="8" r=".52"></circle>
+            <circle cx="3.7" cy="9.5" r=".52"></circle>
+            <circle cx="5.4" cy="9.5" r=".52"></circle>
+            <circle cx="7" cy="9.5" r=".52"></circle>
+            <circle cx="8.5" cy="9.5" r=".52"></circle>
+            <circle cx="4.8" cy="10.8" r=".52"></circle>
+            <circle cx="6.4" cy="10.8" r=".52"></circle>
+            <circle cx="7.8" cy="10.8" r=".52"></circle>
+          </g>
+          <g fill="none" stroke="currentColor" stroke-width="1">
+            <circle cx="12" cy="3" r=".85"></circle>
+            <circle cx="14.1" cy="7.7" r=".85"></circle>
+            <circle cx="12.8" cy="12.6" r=".85"></circle>
+          </g>
+        </symbol>
+
+        <symbol id="icon-bayes" viewBox="0 0 16 16">
+          <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M1 13C2.2 13 3.1 2.5 5 2.5c1.4 0 1.8 6.3 2.6 7.1.8.8 1.5-4.5 2.9-4.5 2 0 2.8 7.9 4.5 7.9" stroke-width="1.2"></path>
+            <path d="M1 13.5h14" stroke-width=".7"></path>
+          </g>
+        </symbol>
+
+        <symbol id="icon-proper-learning" viewBox="0 0 16 16">
+          <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 13.5 14 2.5" stroke-width="1.2"></path>
+            <path d="M4.2 3v4M2.2 5h4M10.5 11.4h3.5" stroke-width="1.05"></path>
+          </g>
+        </symbol>
+      </defs>
+    </svg>
+
+    <section class="section intro">
+      <div class="section-heading">
+        <h1>Research</h1>
+        <span class="section-index">01</span>
+      </div>
+      <div class="research-copy">
+        <h2>Computational learning theory</h2>
+        <p>I create efficient algorithms and study statistical limits for learning different concept classes. My current work focuses on proper learning and robustness to complex forms of data corruption.</p>
+      </div>
+    </section>
+
+    <section class="section" id="publications">
+      <div class="section-heading">
+        <h2>Publications</h2>
+        <span class="section-index">02</span>
+      </div>
+
+      <div>
+        <p class="filter-label">Research categories</p>
+        <div class="category-filters" aria-label="Filter publications by research category">
+          <button class="filter-button" type="button" data-filter="all" aria-pressed="true">All</button>
+
+          <button class="filter-button" type="button" data-filter="robust-statistics" aria-pressed="false">
+            <svg class="category-icon" aria-hidden="true" focusable="false"><use href="#icon-robust-statistics"></use></svg>
+            Robust statistics
+          </button>
+
+          <button class="filter-button" type="button" data-filter="bayes" aria-pressed="false">
+            <svg class="category-icon" aria-hidden="true" focusable="false"><use href="#icon-bayes"></use></svg>
+            Bayes
+          </button>
+
+          <button class="filter-button" type="button" data-filter="proper-learning" aria-pressed="false">
+            <svg class="category-icon" aria-hidden="true" focusable="false"><use href="#icon-proper-learning"></use></svg>
+            Proper learning
+          </button>
+        </div>
+
+        <div id="publication-list">
+          <article class="paper" data-categories="proper-learning">
+            <div class="paper-category">
+              <svg class="category-icon" aria-hidden="true" focusable="false"><use href="#icon-proper-learning"></use></svg>
+              <span>Proper learning</span>
+            </div>
+
+            <div>
+              <h3 class="paper-title">
+                <a href="https://arxiv.org/abs/2605.27594v1" target="_blank" rel="noopener noreferrer">Proper Agnostic Learning of Functions of Halfspaces under Gaussian Marginals</a>
+              </h3>
+              <p class="authors">Sergei Tikhonov, Arsen Vasilyan</p>
+              <p class="venue">arXiv preprint, 2026</p>
+              <p class="contribution">We created the first proper algorithm for agnostically learning Boolean functions of halfspaces under Gaussian marginals.</p>
+              <div class="paper-links">
+                <a href="https://arxiv.org/abs/2605.27594v1" target="_blank" rel="noopener noreferrer">Paper</a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <p class="empty-state" id="empty-state" aria-live="polite" hidden>No publications in this category yet.</p>
+      </div>
+    </section>
+
+    <footer class="footer">2026 · Sergei Tikhonov · Website was created with <span class="codex">Codex</span></footer>
+  </main>
+
+  <script>
+    const filterButtons = [...document.querySelectorAll("[data-filter]")];
+    const papers = [...document.querySelectorAll("[data-categories]")];
+    const emptyState = document.querySelector("#empty-state");
+    const categoryNames = {
+      "robust-statistics": "Robust statistics",
+      bayes: "Bayes",
+      "proper-learning": "Proper learning"
+    };
+
+    filterButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const selectedFilter = button.dataset.filter;
+        let visiblePapers = 0;
+
+        filterButtons.forEach((candidate) => {
+          candidate.setAttribute("aria-pressed", String(candidate === button));
+        });
+
+        papers.forEach((paper) => {
+          const categories = paper.dataset.categories.split(/\s+/);
+          const isVisible = selectedFilter === "all" || categories.includes(selectedFilter);
+          paper.hidden = !isVisible;
+          visiblePapers += Number(isVisible);
+        });
+
+        if (visiblePapers === 0) {
+          emptyState.textContent = `No publications in ${categoryNames[selectedFilter]} yet.`;
+          emptyState.hidden = false;
+        } else {
+          emptyState.hidden = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>
