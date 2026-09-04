@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Teaching experience of Sergei Tikhonov at the University of Texas at Austin and the University of Chicago.">
+  <meta name="theme-color" content="#fafaf8">
+  <title>Teaching — Sergei Tikhonov</title>
+  <link rel="icon" href="favicon.svg?v=3" type="image/svg+xml" sizes="any">
+  <link rel="icon" href="favicon-32.png?v=3" type="image/png" sizes="32x32">
+  <link rel="icon" href="favicon-512.png?v=3" type="image/png" sizes="512x512">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=3" sizes="180x180">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&amp;family=Space+Mono:ital,wght@0,400;1,400&amp;display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      color-scheme: light dark;
+      --paper: light-dark(#fafaf8, #181816);
+      --ink: light-dark(#1a1a1a, #efeee9);
+      --muted: light-dark(#66645f, #aaa8a0);
+      --orange: light-dark(#bf5700, #ec8b4e);
+      --orange-hover: light-dark(#8f4100, #f2a06e);
+      --rule: light-dark(#e0ddd8, #3c3b37);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Space Mono", "Courier New", monospace;
+      font-size: 15px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--orange);
+      text-decoration: none;
+      text-underline-offset: 3px;
+    }
+
+    a:hover {
+      color: var(--orange-hover);
+    }
+
+    a:focus-visible {
+      outline: 2px solid var(--orange);
+      outline-offset: 4px;
+      border-radius: 2px;
+    }
+
+    .page {
+      width: min(100%, 1008px);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      min-height: 48px;
+      border-bottom: 1px solid var(--rule);
+      font-size: 0.8rem;
+    }
+
+    .nav-home {
+      color: var(--ink);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+    }
+
+    .nav-links a:hover,
+    .nav-links .nav-current {
+      color: var(--orange);
+    }
+
+    .teaching-page {
+      padding: 56px 0 55px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .teaching-heading h1 {
+      margin: 0;
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: 1.72rem;
+      font-weight: 500;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+    }
+
+    .course-list {
+      margin-top: 30px;
+      border-top: 1px solid var(--rule);
+    }
+
+    .course {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 10px 42px;
+      padding: 27px 0 30px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .course:last-child {
+      border-bottom: 0;
+    }
+
+    .institution {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.74rem;
+      line-height: 1.5;
+    }
+
+    .course h2 {
+      margin: 4px 0 0;
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: 1.3rem;
+      font-weight: 500;
+      line-height: 1.35;
+      letter-spacing: -0.01em;
+    }
+
+    .term {
+      grid-column: 2;
+      grid-row: 1 / span 2;
+      margin: 1px 0 0;
+      color: var(--muted);
+      font-size: 0.74rem;
+      white-space: nowrap;
+    }
+
+    .description {
+      grid-column: 1 / -1;
+      max-width: 790px;
+      margin: 8px 0 0;
+      font-size: 0.86rem;
+      line-height: 1.75;
+    }
+
+    .footer {
+      padding: 25px 0 31px;
+      color: var(--muted);
+      font-size: 0.7rem;
+      text-align: center;
+    }
+
+    .codex {
+      color: var(--orange);
+    }
+
+    @media (max-width: 760px) {
+      .nav-links {
+        gap: 15px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .page {
+        padding: 0 18px;
+      }
+
+      .nav {
+        gap: 14px;
+        min-height: 44px;
+      }
+
+      .nav-links {
+        gap: 12px;
+        font-size: 0.74rem;
+      }
+
+      .teaching-page {
+        padding: 38px 0 39px;
+      }
+
+      .course {
+        grid-template-columns: 1fr;
+        gap: 0;
+        padding: 24px 0 27px;
+      }
+
+      .term {
+        grid-column: 1;
+        grid-row: auto;
+        margin-top: 8px;
+      }
+
+      .description {
+        grid-column: 1;
+        margin-top: 12px;
+      }
+    }
+
+    @media (max-width: 390px) {
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 4px;
+        padding: 9px 0 11px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+    <header class="nav">
+      <a class="nav-home" href="index.html#about">About</a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="research.html">Research</a>
+        <a class="nav-current" href="teaching.html" aria-current="page">Teaching</a>
+        <a href="index.html#cv">CV</a>
+      </nav>
+    </header>
+
+    <section class="teaching-page" id="teaching">
+      <header class="teaching-heading">
+        <h1>Teaching</h1>
+      </header>
+
+      <div class="course-list">
+        <article class="course">
+          <div>
+            <p class="institution">University of Texas at Austin</p>
+            <h2>Probability and Statistical Inference</h2>
+          </div>
+          <p class="term">Fall 2025</p>
+          <p class="description">I served as a teaching assistant for Professor <a href="https://jaybartroff.com/" target="_blank" rel="noopener noreferrer">Jay Bartroff</a> in an undergraduate course for statistics majors. Topics included discrete and continuous probability and the central limit theorem.</p>
+        </article>
+
+        <article class="course">
+          <div>
+            <p class="institution">University of Chicago</p>
+            <h2>Stochastic Processes</h2>
+          </div>
+          <p class="term">Fall 2024</p>
+          <p class="description">I was extremely lucky to serve as a teaching assistant for Professor <a href="https://math.uchicago.edu/~lawler/" target="_blank" rel="noopener noreferrer">Gregory Lawler</a>, one of the greatest probabilists of the twenty-first century. The course covered the theory of Markov chains, martingales, and Lévy processes.</p>
+        </article>
+      </div>
+    </section>
+
+    <footer class="footer">2026 · Sergei Tikhonov · Website was created with <span class="codex">Codex</span></footer>
+  </main>
+</body>
+</html>

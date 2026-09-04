@@ -1,10 +1,10 @@
 # Sergei Tikhonov — academic website
 
-This is a two-page static website made for GitHub Pages. It has no build step.
+This is a three-page static website made for GitHub Pages. It has no build step.
 
 ## Publish it
 
-1. Put `index.html`, `research.html`, and `favicon.svg` in the root of your `sstikhonov.github.io` repository.
+1. Put `index.html`, `research.html`, `teaching.html`, and the favicon files in the root of your `sstikhonov.github.io` repository.
 2. Add a square or portrait-oriented photo named `portrait.jpg` beside it.
 3. On GitHub, open **Settings → Pages**.
 4. Under **Build and deployment**, choose **Deploy from a branch**, then select `main` and `/ (root)`.
@@ -12,4 +12,4 @@ This is a two-page static website made for GitHub Pages. It has no build step.
 
 ## Customize it
 
-Open `index.html` in any text editor to change the biography, links, news, publications, education, and academic experience. Edit `research.html` to change the publication introduction, categories, or category emblems.
+Open `index.html` in any text editor to change the biography, links, news, publications, education, and academic experience. Edit `research.html` to change the publication introduction, categories, or category emblems. Edit `teaching.html` to update course descriptions.
