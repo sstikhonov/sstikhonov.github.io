@@ -295,6 +295,14 @@
       padding: 18px 0 20px;
     }
 
+    .year-papers {
+      min-width: 0;
+    }
+
+    .year-papers .paper + .paper {
+      border-top: 1px solid var(--rule);
+    }
+
     .paper-title {
       margin: 0;
       font-size: 0.92rem;
@@ -621,17 +629,31 @@
       </div>
       <div class="year-group">
         <h3 class="year">2026</h3>
-        <article class="paper">
-          <h4 class="paper-title">
-            <a href="https://arxiv.org/abs/2605.27594v1">Proper Agnostic Learning of Functions of Halfspaces under Gaussian Marginals</a>
-          </h4>
-          <p class="authors">Sergei Tikhonov, Arsen Vasilyan</p>
-          <p class="venue">arXiv preprint, 2026</p>
-          <p class="contribution">We created the first algorithm for properly agnostically learning Boolean functions of halfspaces under Gaussian marginals.</p>
-          <div class="paper-links">
-            <a href="https://arxiv.org/abs/2605.27594v1">Paper</a>
-          </div>
-        </article>
+        <div class="year-papers">
+          <article class="paper">
+            <h4 class="paper-title">
+              <a href="https://arxiv.org/abs/2609.17655">Efficient Robust Learning at the Information-Theoretic Limit</a>
+            </h4>
+            <p class="authors">Adam R. Klivans, Konstantinos Stavropoulos, Sergei Tikhonov, Arsen Vasilyan</p>
+            <p class="venue">arXiv preprint, 2026</p>
+            <p class="contribution">We developed the first efficient robust learning algorithm that achieves information-theoretically optimal error under nasty noise, with access to an ERM oracle or for concept classes admitting sandwiching polynomial approximations.</p>
+            <div class="paper-links">
+              <a href="https://arxiv.org/abs/2609.17655">Paper</a>
+            </div>
+          </article>
+
+          <article class="paper">
+            <h4 class="paper-title">
+              <a href="https://arxiv.org/abs/2605.27594v1">Proper Agnostic Learning of Functions of Halfspaces under Gaussian Marginals</a>
+            </h4>
+            <p class="authors">Sergei Tikhonov, Arsen Vasilyan</p>
+            <p class="venue">arXiv preprint, 2026</p>
+            <p class="contribution">We created the first algorithm for properly agnostically learning Boolean functions of halfspaces under Gaussian marginals.</p>
+            <div class="paper-links">
+              <a href="https://arxiv.org/abs/2605.27594v1">Paper</a>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
 
