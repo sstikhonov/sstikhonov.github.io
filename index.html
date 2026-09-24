@@ -1,0 +1,722 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Sergei Tikhonov — PhD student at the University of Texas at Austin working in computational learning theory.">
+  <meta name="theme-color" content="#fafaf8">
+  <title>Sergei Tikhonov</title>
+  <link rel="icon" href="favicon.svg?v=3" type="image/svg+xml" sizes="any">
+  <link rel="icon" href="favicon-32.png?v=3" type="image/png" sizes="32x32">
+  <link rel="icon" href="favicon-512.png?v=3" type="image/png" sizes="512x512">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=3" sizes="180x180">
+
+  <!--
+    Before publishing:
+    1. Put your photo next to this file and name it portrait.jpg.
+    2. Keep favicon.svg next to this file.
+    3. Edit any text marked "Update this".
+  -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&amp;family=Space+Mono:ital,wght@0,400;1,400&amp;display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      color-scheme: light dark;
+      --paper: light-dark(#fafaf8, #181816);
+      --ink: light-dark(#1a1a1a, #efeee9);
+      --muted: light-dark(#66645f, #aaa8a0);
+      --orange: light-dark(#bf5700, #ec8b4e);
+      --orange-hover: light-dark(#8f4100, #f2a06e);
+      --rule: light-dark(#e0ddd8, #3c3b37);
+      --photo: light-dark(#d9d6cf, #30312f);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Space Mono", "Courier New", monospace;
+      font-size: 15px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--orange);
+      text-decoration: none;
+      text-underline-offset: 3px;
+    }
+
+    a:hover {
+      color: var(--orange-hover);
+    }
+
+    a:focus-visible {
+      outline: 2px solid var(--orange);
+      outline-offset: 4px;
+      border-radius: 2px;
+    }
+
+    .page {
+      width: min(100%, 1008px);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      min-height: 48px;
+      border-bottom: 1px solid var(--rule);
+      font-size: 0.8rem;
+    }
+
+    .nav-home {
+      color: var(--ink);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+    }
+
+    .nav-links a:hover {
+      color: var(--orange);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 264px minmax(0, 1fr);
+      gap: 48px;
+      align-items: start;
+      padding: 56px 0 48px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .profile {
+      width: 260px;
+      text-align: center;
+    }
+
+    .portrait {
+      position: relative;
+      width: 260px;
+      height: 260px;
+      overflow: hidden;
+      border: 3px solid var(--paper);
+      border-radius: 6px;
+      background:
+        linear-gradient(145deg, transparent 0 55%, color-mix(in srgb, var(--orange) 22%, transparent) 56%),
+        var(--photo);
+      box-shadow: 0 2px 12px color-mix(in srgb, var(--ink) 15%, transparent);
+    }
+
+    .portrait img {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .portrait-placeholder {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      color: var(--muted);
+      font-size: 0.7rem;
+    }
+
+    .profile h1,
+    .section h2,
+    .theme h3 {
+      margin: 0;
+      font-family: "Source Serif 4", Georgia, serif;
+      font-weight: 500;
+    }
+
+    .profile h1 {
+      margin-top: 15px;
+      font-size: 1.72rem;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+
+    .subtitle {
+      margin: 5px 0 0;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    .affiliation {
+      margin: 4px 0 0;
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: 0.96rem;
+      white-space: nowrap;
+    }
+
+    .email {
+      margin: 4px 0 0;
+      font-size: 0.72rem;
+    }
+
+    .statement {
+      max-width: 600px;
+      margin: 0;
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: 1.48rem;
+      line-height: 1.38;
+    }
+
+    .bio {
+      max-width: 620px;
+      margin: 16px 0 0;
+      font-size: 0.9rem;
+      line-height: 1.72;
+    }
+
+    .contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+      margin-top: 16px;
+      font-size: 0.82rem;
+    }
+
+    .contact a {
+      display: inline-flex;
+      gap: 4px;
+      align-items: center;
+    }
+
+    .contact svg {
+      width: 14px;
+      height: 14px;
+      flex-shrink: 0;
+    }
+
+    .separator {
+      color: var(--rule);
+    }
+
+    .section {
+      display: grid;
+      grid-template-columns: 166px minmax(0, 1fr);
+      gap: 42px;
+      padding: 39px 0 42px;
+      border-bottom: 1px solid var(--rule);
+      scroll-margin-top: 18px;
+    }
+
+    .section-heading {
+      padding-top: 1px;
+    }
+
+    .section h2 {
+      font-size: 1.28rem;
+      line-height: 1.45;
+    }
+
+    .section-index {
+      display: block;
+      margin-top: 7px;
+      color: var(--muted);
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+    }
+
+    .theme h3 {
+      font-size: 1.14rem;
+      line-height: 1.4;
+    }
+
+    .theme p {
+      margin: 12px 0 0;
+      font-size: 0.9rem;
+      line-height: 1.72;
+    }
+
+    .news-list {
+      border-top: 1px solid var(--rule);
+    }
+
+    .news-item {
+      display: grid;
+      grid-template-columns: 82px 1fr;
+      gap: 22px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--rule);
+      font-size: 0.84rem;
+      line-height: 1.65;
+    }
+
+    .news-item time {
+      color: var(--muted);
+      font-size: 0.73rem;
+      white-space: nowrap;
+    }
+
+    .year-group {
+      display: grid;
+      grid-template-columns: 64px 1fr;
+      border-top: 1px solid var(--rule);
+    }
+
+    .year {
+      margin: 0;
+      padding-top: 19px;
+      color: var(--muted);
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: 1.08rem;
+      font-weight: 400;
+    }
+
+    .paper {
+      padding: 18px 0 20px;
+    }
+
+    .year-papers {
+      min-width: 0;
+    }
+
+    .year-papers .paper + .paper {
+      border-top: 1px solid var(--rule);
+    }
+
+    .paper-title {
+      margin: 0;
+      font-size: 0.92rem;
+      font-weight: 400;
+      line-height: 1.48;
+    }
+
+    .paper-title a {
+      color: var(--ink);
+    }
+
+    .paper-title a:hover {
+      color: var(--orange);
+    }
+
+    .authors {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    .venue {
+      margin: 2px 0 0;
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: 0.91rem;
+      font-style: italic;
+    }
+
+    .contribution {
+      margin: 9px 0 0;
+      color: var(--muted);
+      font-size: 0.82rem;
+      line-height: 1.65;
+    }
+
+    .paper-links {
+      margin-top: 9px;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+    }
+
+    .cv-group + .cv-group {
+      margin-top: 30px;
+    }
+
+    .cv-subheading {
+      margin: 0 0 10px;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .cv-row {
+      display: grid;
+      gap: 18px;
+      align-items: baseline;
+      padding: 4px 0;
+      font-size: 0.82rem;
+    }
+
+    .cv-education {
+      grid-template-columns: 160px minmax(0, 1fr) auto;
+    }
+
+    .institution {
+      display: flex;
+      align-items: center;
+      min-width: 0;
+      color: var(--muted);
+    }
+
+    .school-icon {
+      width: 18px;
+      height: 18px;
+      flex: 0 0 18px;
+      margin-right: 8px;
+      object-fit: contain;
+    }
+
+    .cv-year,
+    .cv-role,
+    .cv-meta {
+      color: var(--muted);
+      font-size: 0.72rem;
+      white-space: nowrap;
+    }
+
+    .cv-experience {
+      grid-template-columns: 32px minmax(0, 1fr) 174px;
+    }
+
+    .cv-meta {
+      text-align: right;
+    }
+
+    .cv-experience > span:nth-child(2) {
+      white-space: nowrap;
+    }
+
+    .footer {
+      padding: 25px 0 31px;
+      color: var(--muted);
+      font-size: 0.7rem;
+      text-align: center;
+    }
+
+    .codex {
+      color: var(--orange);
+    }
+
+    @media (max-width: 760px) {
+      .nav-links {
+        gap: 15px;
+      }
+
+      .hero {
+        grid-template-columns: 234px minmax(0, 1fr);
+        gap: 30px;
+      }
+
+      .profile,
+      .portrait {
+        width: 230px;
+      }
+
+      .portrait {
+        height: 230px;
+      }
+
+      .section {
+        grid-template-columns: 148px minmax(0, 1fr);
+        gap: 30px;
+      }
+
+      .cv-experience {
+        grid-template-columns: 32px minmax(0, 1fr);
+        gap: 3px 18px;
+      }
+
+      .cv-experience .cv-meta {
+        grid-column: 2;
+        text-align: left;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .cv-education {
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 3px 18px;
+      }
+
+      .cv-education .institution {
+        grid-column: 1;
+      }
+
+      .cv-education .cv-year {
+        grid-column: 2;
+        grid-row: 1;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .page {
+        padding: 0 18px;
+      }
+
+      .nav {
+        gap: 14px;
+        min-height: 44px;
+      }
+
+      .nav-links {
+        gap: 12px;
+        font-size: 0.74rem;
+      }
+
+      .hero,
+      .section {
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
+
+      .hero {
+        padding: 35px 0 38px;
+      }
+
+      .profile,
+      .portrait {
+        width: 260px;
+      }
+
+      .profile {
+        margin: 0 auto;
+      }
+
+      .portrait {
+        height: 260px;
+      }
+
+      .section {
+        padding: 32px 0 35px;
+      }
+
+      .section-heading {
+        display: flex;
+        align-items: baseline;
+      }
+
+      .section-index {
+        display: inline;
+        margin: 0 0 0 9px;
+      }
+
+      .year-group {
+        grid-template-columns: 1fr;
+      }
+
+      .year {
+        padding-bottom: 2px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .cv-experience > span:nth-child(2) {
+        white-space: normal;
+      }
+    }
+
+    @media (max-width: 390px) {
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 4px;
+        padding: 9px 0 11px;
+      }
+
+      .news-item {
+        grid-template-columns: 1fr;
+        gap: 2px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+    <header class="nav">
+      <a class="nav-home" href="#about">About</a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="research.html">Research</a>
+        <a href="teaching.html">Teaching</a>
+        <a href="#cv">CV</a>
+      </nav>
+    </header>
+
+    <section class="hero" id="about">
+      <div class="profile">
+        <div class="portrait">
+          <span class="portrait-placeholder">Add portrait.jpg</span>
+          <img src="portrait.jpg" alt="Portrait of Sergei Tikhonov" onerror="this.style.display='none'">
+        </div>
+        <h1>Sergei Tikhonov</h1>
+        <p class="subtitle">PhD Student</p>
+        <p class="affiliation"><a href="https://www.utexas.edu/">University of Texas at Austin</a></p>
+        <p class="email"><a href="mailto:tikhonov@utexas.edu">tikhonov@utexas.edu</a></p>
+      </div>
+
+      <div>
+        <p class="statement">About me</p>
+        <p class="bio">I am a PhD student at the University of Texas at Austin. My research is in computational learning theory. I create efficient algorithms and study statistical limits for learning different concept classes. My current work focuses on proper learning and robustness to complex forms of data corruption.</p>
+        <div class="contact" aria-label="Contact and academic links">
+          <a href="mailto:tikhonov@utexas.edu">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+            </svg>
+            Email
+          </a>
+          <span class="separator">·</span>
+          <a href="https://scholar.google.com/citations?user=8LWzpOkAAAAJ&amp;hl=en&amp;oi=sra" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+              <path d="M5.242 13.769 0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"></path>
+            </svg>
+            Google Scholar
+          </a>
+          <span class="separator">·</span>
+          <a href="https://github.com/sstikhonov" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"></path>
+            </svg>
+            GitHub
+          </a>
+          <span class="separator">·</span>
+          <a href="#cv">
+            <svg viewBox="0 0 576 512" fill="currentColor" aria-hidden="true" focusable="false">
+              <path d="M0 96h576c0-35.3-28.7-64-64-64H64C28.7 32 0 60.7 0 96zm0 32v288c0 35.3 28.7 64 64 64h448c35.3 0 64-28.7 64-64V128H0zm64 277.3c0-29.5 23.9-53.3 53.3-53.3h117.3c29.5 0 53.3 23.9 53.3 53.3 0 5.9-4.8 10.7-10.7 10.7H74.7c-5.9 0-10.7-4.8-10.7-10.7zM176 192a64 64 0 1 1 0 128 64 64 0 1 1 0-128zm176 16c0-8.8 7.2-16 16-16h128c8.8 0 16 7.2 16 16s-7.2 16-16 16H368c-8.8 0-16-7.2-16-16zm0 64c0-8.8 7.2-16 16-16h128c8.8 0 16 7.2 16 16s-7.2 16-16 16H368c-8.8 0-16-7.2-16-16zm0 64c0-8.8 7.2-16 16-16h128c8.8 0 16 7.2 16 16s-7.2 16-16 16H368c-8.8 0-16-7.2-16-16z"></path>
+            </svg>
+            CV
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="news">
+      <div class="section-heading">
+        <h2>News</h2>
+        <span class="section-index">01</span>
+      </div>
+      <div class="news-list">
+        <div class="news-item">
+          <time datetime="2026-05">May 2026</time>
+          <span>New preprint with <a href="https://www.vasilyan.net/">Arsen Vasilyan</a> on the first algorithm for proper agnostic learning of functions of halfspaces under Gaussian marginals was posted on <a href="https://arxiv.org/abs/2605.27594v1">arXiv</a>.</span>
+        </div>
+        <!-- Update this: copy the news-item block above to add future news. -->
+      </div>
+    </section>
+
+    <section class="section" id="publications">
+      <div class="section-heading">
+        <h2>Publications</h2>
+        <span class="section-index">02</span>
+      </div>
+      <div class="year-group">
+        <h3 class="year">2026</h3>
+        <div class="year-papers">
+          <article class="paper">
+            <h4 class="paper-title">
+              <a href="https://arxiv.org/abs/2609.17655">Efficient Robust Learning at the Information-Theoretic Limit</a>
+            </h4>
+            <p class="authors">Adam R. Klivans, Konstantinos Stavropoulos, Sergei Tikhonov, Arsen Vasilyan</p>
+            <p class="venue">arXiv preprint, 2026</p>
+            <p class="contribution">We developed the first efficient robust learning algorithm that achieves information-theoretically optimal error under nasty noise, with access to an ERM oracle or for concept classes admitting sandwiching polynomial approximations.</p>
+            <div class="paper-links">
+              <a href="https://arxiv.org/abs/2609.17655">Paper</a>
+            </div>
+          </article>
+
+          <article class="paper">
+            <h4 class="paper-title">
+              <a href="https://arxiv.org/abs/2605.27594v1">Proper Agnostic Learning of Functions of Halfspaces under Gaussian Marginals</a>
+            </h4>
+            <p class="authors">Sergei Tikhonov, Arsen Vasilyan</p>
+            <p class="venue">NeurIPS 2025 (Spotlight)</p>
+            <p class="contribution">We created the first algorithm for properly agnostically learning Boolean functions of halfspaces under Gaussian marginals.</p>
+            <div class="paper-links">
+              <a href="https://arxiv.org/abs/2605.27594v1">Paper</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="cv">
+      <div class="section-heading">
+        <h2>CV</h2>
+        <span class="section-index">03</span>
+      </div>
+
+      <div>
+        <div class="cv-group">
+          <h3 class="cv-subheading">Education</h3>
+
+          <div class="cv-row cv-education">
+            <span>PhD Statistics</span>
+            <span class="institution"><img class="school-icon" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pgo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDIwMDEwOTA0Ly9FTiIKICJodHRwOi8vd3d3LnczLm9yZy9UUi8yMDAxL1JFQy1TVkctMjAwMTA5MDQvRFREL3N2ZzEwLmR0ZCI+CjxzdmcgdmVyc2lvbj0iMS4wIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiB3aWR0aD0iNTEyLjAwMDAwMHB0IiBoZWlnaHQ9IjUxMi4wMDAwMDBwdCIgdmlld0JveD0iMCAwIDUxMi4wMDAwMDAgNTEyLjAwMDAwMCIKIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaWRZTWlkIG1lZXQiPgo8bWV0YWRhdGE+CkNyZWF0ZWQgYnkgcG90cmFjZSAxLjExLCB3cml0dGVuIGJ5IFBldGVyIFNlbGluZ2VyIDIwMDEtMjAxMwo8L21ldGFkYXRhPgo8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwLjAwMDAwMCw1MTIuMDAwMDAwKSBzY2FsZSgwLjEwMDAwMCwtMC4xMDAwMDApIgpmaWxsPSIjYmY1NzAwIiBzdHJva2U9Im5vbmUiPgo8cGF0aCBkPSJNMjE2OSA1MTE1IGMtMyAtMiAtNDkgLTYgLTEwNCAtOSAtMTAwIC01IC0xNTUgLTkgLTI5NSAtMjIgLTQxIC00Ci04OCAtOCAtMTA1IC05IC03MSAtNiAtMTczIC0xNiAtMjA1IC0yMCAtMTkgLTIgLTYyIC03IC05NSAtMTEgLTMzIC0zIC03MSAtNwotODUgLTggLTE0IC0yIC01NiAtNiAtOTMgLTEwIC0zNyAtNCAtNzYgLTkgLTg1IC0xMSAtOSAtMSAtNDQgLTYgLTc3IC05IC04NgotMTAgLTE3NyAtMjUgLTE4MiAtMzAgLTMgLTIgLTQgLTMwMSAtMyAtNjYzIDAgLTM2MiAxIC02NjUgMSAtNjczIC0yIC02NiAxMAotODM3IDEzIC04NzUgMiAtMjIgNyAtNjUgMTAgLTk1IDMgLTMwIDggLTgwIDExIC0xMTAgNCAtNTcgOSAtOTEgMjYgLTIwMCA1Ci0zNiAxMiAtNzggMTQgLTk1IDYgLTM5IDUwIC0yMzQgNzEgLTMwOSA5IC0zMiAxOCAtNjkgMjAgLTgyIDIyIC0xMjAgMTk2Ci01MzAgMjk3IC02OTYgMzcgLTYyIDEyMSAtMTkyIDEzNCAtMjA4IDcgLTggMjYgLTMzIDQzIC01NSA5OCAtMTI1IDM0OCAtMzg0CjQ0NSAtNDYxIDYzIC01MCA4MiAtNjUgMTA2IC04NSAxMSAtOSAzNSAtMjcgNTQgLTQwIDE5IC0xMyAzNSAtMjcgMzUgLTMxIDAKLTUgNiAtOCAxNCAtOCA4IDAgMTYgLTMgMTggLTcgNyAtMTYgMzY2IC0yNjUgNDAyIC0yNzkgOSAtMyA3MSAzMiAxNTEgODUgMTQ4Cjk5IDE5NyAxMzMgMjA1IDE0MSAzIDMgMzAgMjMgNjAgNDUgMjQ0IDE3NCA1MjEgNDM3IDY3MCA2MzQgMTQgMTggMzUgNDUgNDYKNTkgMTEwIDEzOCAyNzEgNDM3IDM1MCA2NTAgNTAgMTM1IDE0MyA0NTkgMTYwIDU2MSA1IDMwIDE5IDExMCAyOSAxNjEgNCAxOSA4CjQ5IDEwIDY1IDMgMTcgNyA1MCAxMCA3NSA3IDUwIDEwIDg2IDIwIDIwOSA0IDQ3IDkgOTYgMTIgMTEwIDggNDcgMTQgMjE4MSA2CjIxODIgLTQgMCAtMTcgMiAtMjggNCAtMTEgMiAtNDcgNiAtODAgMTEgLTMzIDQgLTY3IDggLTc1IDkgLTggMSAtNDMgNiAtNzggOQotMzUgNCAtNzIgOSAtODIgMTEgLTE4IDMgLTU1IDcgLTE4MiAyMCAtMjkgMyAtNzMgOCAtOTggMTEgLTI1IDMgLTY1IDcgLTkwIDkKLTI1IDIgLTcwIDcgLTEwMCAxMCAtNzggOCAtMTUyIDE0IC0yNDUgMjAgLTQ0IDMgLTEwNSA4IC0xMzUgMTAgLTcwIDcgLTkxNgoxNiAtOTIxIDEweiBtNzk2IC0xOTAgYzE2NCAtOSAyNTIgLTE0IDMxNSAtMjAgMTQ2IC0xMiAxODcgLTE2IDIzNSAtMjEgMjggLTMKNjYgLTcgODUgLTkgMTA3IC05IDIzNiAtMjMgMjkwIC0zMSAxNCAtMSA1MiAtNiA4NSAtOSAzMyAtNCA2NCAtMTAgNjggLTE0IDQKLTUgMTAgLTQyIDEyIC04NCAyIC00MSA2IC0xMDIgOSAtMTM0IDMgLTMyIDggLTExMCAxMSAtMTczIDMgLTYzIDggLTE0MiAxMAotMTc1IDIgLTMzIDcgLTEwMyAxMCAtMTU1IDMgLTUyIDggLTEyNCAxMCAtMTYwIDUgLTc5IDEzIC0yMjAgMjAgLTM0MCBsNSAtOTAKLTM4IC0xIGMtMjAgLTEgLTcyNSAtMyAtMTU2NSAtNCBsLTE1MjggLTMgNiAxMDIgYzMgNTUgNyAxMzAgMTAgMTY2IDUgNzggMTYKMjQ2IDIwIDMxNSA2IDk4IDE2IDI3MSAyMCAzMzUgNyAxMDAgMTggMjcxIDIwIDMxMCAyIDE5IDMgNDcgNCA2MiAxIDI5IDEwIDM0Cjc2IDQyIDg1IDExIDE0MSAxOCAxNzUgMjEgMTkgMSA1OCA1IDg1IDkgMjggMyA3MyA4IDEwMCAxMSAyOCAyIDc3IDcgMTEwIDEwCjMzIDMgNzQgOCA5MCAxMCAxNyAyIDgwIDYgMTQwIDEwIDYxIDQgMTI2IDkgMTQ1IDExIDE5IDIgMTEyIDcgMjA1IDEwIDk0IDQKMTcxIDggMTczIDkgNCA0IDQ5MSAtNCA1ODcgLTEweiBtLTE4MCAtMTU1MCBjNTAgLTQgMTE5IC04IDE1NSAtMTAgNjQgLTQgMTc2Ci0xMCAzMzUgLTIwIDQ0IC0zIDEwMyAtNyAxMzAgLTEwIDI4IC0zIDEwMSAtNyAxNjMgLTEwIDYyIC0zIDEyOSAtNyAxNTAgLTkKMjAgLTMgOTMgLTggMTYyIC0xMSA2OSAtNCAxNDMgLTkgMTY1IC0xMCAyMiAtMiA1MCAtNCA2MyAtNCBsMjIgLTEgLTUgLTE5MgpjLTMgLTEwNiAtNyAtMjI0IC0xMCAtMjYzIC03IC0xMTEgLTE0IC0yMDEgLTE5IC0yMzcgLTMgLTE4IC04IC02MCAtMTEgLTkzCi0zIC0zMyAtOCAtNjkgLTEwIC04MCAtNSAtMjQgLTE2IC05MCAtMjAgLTEyNSAtMiAtMTQgLTEzIC02OCAtMjUgLTEyMCAtMTIKLTUyIC0yMyAtMTAzIC0yNSAtMTEyIC00OCAtMjMxIC0xOTcgLTYwMCAtMzM1IC04MjYgLTIwNyAtMzQxIC01NDUgLTY1NiAtOTU5Ci04OTUgLTY4IC0zOSAtMTMwIC03MiAtMTM4IC03MyAtMzAgLTUgLTI1OSAxMjcgLTQxOSAyNDIgLTE3MiAxMjMgLTM3NCAzMDEKLTQ3NSA0MjAgLTUyIDYxIC0xNjkgMjIxIC0xNjkgMjMyIDAgNSAtNCAxMiAtOCAxNCAtMTIgNSAtODQgMTI0IC0xMjMgMjAzCi0xOSAzOSAtMzYgNzIgLTM5IDc1IC0yMyAyMSAtMTcyIDQxMCAtMTk1IDUxMCAtMSA4IC0xMiA1MyAtMjMgMTAwIC0yNCAxMDAKLTMwIDEzMCAtNTIgMjUzIC02IDMyIC0xMyA3NCAtMTYgOTQgLTIgMjAgLTcgNTAgLTEwIDY3IC0xMiA2OCAtMzEgMjkzIC0zOQo0NjEgLTYgMTM0IC04IDMzNSAtMyAzNDAgMiAyIDQ2IDcgOTggMTAgNTIgMyAxMjAgOCAxNTAgMTAgNzAgNiAxOTQgMTQgMjkwCjIwIDQxIDIgMTEzIDcgMTYwIDEwIDQ3IDMgMTIxIDcgMTY1IDEwIDQ0IDMgMTE2IDggMTYwIDExIDEyNSA4IDE4MSAxMiAzMDUKMTkgNjMgNCAxMTYgOCAxMTggOSA0IDUgMjQ2IC0yIDMzNyAtOXoiLz4KPHBhdGggZD0iTTIzMzggNDcwNSBjLTIgLTIgLTMwIC01IC02MyAtOSAtMzMgLTMgLTcxIC04IC04NSAtMTEgLTEzIC0zIC00MgotNyAtNjUgLTEwIC0yMiAtNCAtNTEgLTggLTY1IC0xMCAtNzEgLTExIC0xMTEgLTE2IC0xNzMgLTIwIC0zOCAtMyAtNzMgLTcKLTc3IC0xMCAtNSAtMyAtMTEgLTEgLTE1IDUgLTQgNiAtMTMgNyAtMjMgMSAtMTUgLTggLTE4IC0yNSAtMTcgLTEyMCAwIC02MQotMiAtMTExIC01IC0xMTIgLTMgMCAtMTUgLTIgLTI3IC0zIC0zNCAtNCAtMzggLTEyIC0zOSAtNzcgbC0xIC01OSAzMiAwIGMzOQowIDQxIC03IDQxIC0xMTAgLTEgLTcwIC0zIC03NSAtMjMgLTc2IC00OCAtMyAtNTYgLTI0IC00NCAtMTMxIDAgLTYgMTYgLTEzCjM0IC0xNSBsMzIgLTMgMSAtMTE2IGMxIC0xMTggNSAtMTQxIDI3IC0xMzQgNyAyIDUwIDYgOTcgMTAgMTAyIDcgMTI2IDkgMjEwCjI1IDM2IDYgNzYgMTMgOTAgMTUgMTQgMSA0MSA2IDYwIDEwIDU3IDExIDE3OSAxMyAyMjMgMyA2MyAtMTQgMTQ4IC0xNyAxNzcKLTYgNTIgMjAgMTczIDE1IDM0NSAtMTQgOTQgLTE1IDIxOCAtMzEgMjc2IC0zNCAxMjUgLTggMTE1IC0yMCAxMTQgMTQ0IC0xCjExMSAtNSAxMDIgNTUgMTA2IDEyIDEgMTUgMTcgMTcgNjkgMiA2MCAwIDY3IC0xOCA2OCAtMTAgMSAtMjMgMyAtMjkgNCAtNSAxCi0xMyAzIC0xNyA0IC01IDAgLTcgMzYgLTcgNzkgMiAxMDIgMiAxMDMgMTcgMTAxIDUxIC02IDU1IC0yIDU0IDYxIC0yIDYzIC0xNAo4MSAtNDkgNzUgLTIyIC01IC0yMCAtMTQgLTIyIDExNyAtMSA1OSAtNCAxMDkgLTcgMTEyIC0yIDIgLTQ3IDcgLTEwMSAxMCAtOTUKNiAtMTEwIDcgLTIzOCAyNyAtMzYgNiAtODEgMTIgLTEwMCAxNSAtMTkgMiAtNDYgNyAtNjAgOSAtNTUgMTEgLTE4MCA1IC0yNDMKLTExIC02MiAtMTUgLTcyIC0xNSAtMTIwIC0xIC00NCAxNCAtMTYxIDI5IC0xNjkgMjJ6IG0xMjAgLTEyNiBsNTQgLTExIC03Ci0yOTYgYy00IC0xNjQgLTggLTMxOSAtOSAtMzQ3IGwtMiAtNTAgLTc5IC0xIGMtODIgLTEgLTE2NiAtOSAtMjQ1IC0yNCAtMjUKLTUgLTYzIC0xMSAtODUgLTE0IC0yMyAtNCAtNTAgLTggLTYyIC0xMCAtMTIgLTMgLTUyIC04IC04OSAtMTEgbC02NiAtNyA3CjI1OCBjMyAxNDMgNyAzMDAgOSAzNDkgMSA1MCA1IDk2IDkgMTAyIDcgMTEgMjcgMTUgMTIzIDI4IDU1IDcgOTIgMTMgMTk0IDI5CjExMiAxNyAxODMgMTkgMjQ4IDV6IG00NTMgLTQgYzI0IC00IDUzIC05IDY0IC0xMSAxMSAtMiA0MCAtNyA2NSAtMTAgMjUgLTMKNTIgLTggNjEgLTkgOSAtMiA0MCAtNiA3MCAtMTAgMzAgLTQgNTcgLTEwIDYxIC0xNCA3IC02IDEwIC02NSAyMyAtNTA4IDcKLTIwNiA2IC0yMTAgLTI4IC0yMDQgLTQgMSAtMjcgNCAtNTAgNiAtMjMgMyAtNjcgMTAgLTk3IDE1IC0zMCA1IC03MyAxMiAtOTUKMTYgLTIyIDMgLTYwIDEwIC04NSAxNCAtMjUgNSAtOTUgOCAtMTU3IDcgLTEwNyAtMiAtMTEyIC0xIC0xMTEgMTggMCAxNyAtNgoyNzQgLTE2IDU5OCAtMSA0MyAyIDgxIDcgODQgMzIgMjAgMTkwIDI0IDI4OCA4eiIvPgo8cGF0aCBkPSJNMjMyOCA0NDg1IGMtMiAtMiAtMzAgLTYgLTYzIC0xMCAtMzIgLTMgLTYzIC05IC02NyAtMTEgLTQgLTMgLTgKLTI1IC04IC00OSAwIC00NCAwIC00NCAzMyAtNDAgMTcgMyA2NiA4IDEwNyAxMSA0MSAzIDc4IDggODMgMTEgNCAyIDcgMjIgNwo0NCAwIDMwIC00IDM5IC0xNyA0MCAtMTAgMSAtMzAgMiAtNDUgMyAtMTUgMiAtMjkgMiAtMzAgMXoiLz4KPHBhdGggZD0iTTIwOTggNDQ1NCBjLTUgLTQgLTgxIC0xNyAtMTA1IC0xNyAtNyAwIC0xMyAtNyAtMTQgLTE2IC01IC03NiAtNQotNzYgMjEgLTc1IDQxIDIgMTA5IDEyIDEyMCAxOSAxNiAxMCAxMiA4MiAtNCA4OCAtOCAzIC0xNiA0IC0xOCAxeiIvPgo8cGF0aCBkPSJNMjMzNyA0Mjc0IGMtMSAtMSAtMjcgLTQgLTU3IC04IC05MiAtOSAtMTQ1IC0xOCAtMTUyIC0yNCAtOCAtOCAtMTEKLTI4IC05IC02MyAxIC0yOCAtMSAtMjcgNzkgLTE1IDE1IDMgNjMgOCAxMDcgMTEgNDQgNCA4NyAxMSA5NSAxNSAxNiA5IDIxIDgwCjUgODEgLTQ1IDMgLTY2IDQgLTY4IDN6Ii8+CjxwYXRoIGQ9Ik0yMDAwIDQyMjYgYy0zMyAtMTAgLTM2IC0xNCAtMzUgLTQ4IDEgLTQ4IDYgLTUyIDUyIC00MSAzNiA4IDM4IDExCjQxIDUwIDQgNDggLTcgNTUgLTU4IDM5eiIvPgo8cGF0aCBkPSJNMjMzOCA0MDY1IGMtMiAtMiAtMzEgLTUgLTY1IC04IC0zNSAtMyAtNjcgLTggLTczIC0xMiAtNSAtMyAtOSAtMjQKLTggLTQ2IDEgLTM4IDEwIC00NiA0MyAtMzkgNiAxIDM3IDQgNzAgNiA5OCA3IDEwMSA5IDEwMCA0OCAwIDE5IC0zIDM3IC03IDQxCi02IDcgLTU1IDE0IC02MCAxMHoiLz4KPHBhdGggZD0iTTIwMzMgNDAyMyBjLTczIC0xNSAtNzMgLTE2IC03MyAtNDggMCAtMzkgOSAtNjcgMTkgLTYwIDkgNSA2NCAxNgoxMTAgMjEgMTggMiAzNSA1IDM2IDYgNCA1IDcgNDAgNiA3MSAtMSAzMSAxIDMwIC05OCAxMHoiLz4KPHBhdGggZD0iTTI3MzMgNDQ4MiBjLTIwIC0zIC0yMyAtOSAtMjMgLTQ4IGwwIC00NCA0MyAtMSBjMjMgMCA2NiAtMiA5NSAtNQozNiAtMyA1MiAwIDUzIDkgMSAxNSAtMiA3MSAtNSA3NCAtMiAyIC04OSAxNCAtMTIxIDE3IC0xMSAxIC0zMCAwIC00MiAtMnoiLz4KPHBhdGggZD0iTTI5NzEgNDQ1NiBjLTkgLTEyIC0xMSAtODYgLTIgLTg3IDMgMCAxNyAtMyAzMSAtNSA2NCAtMTIgMTUxIC0yMAoxNTUgLTEzIDYgOSAtMSA2OCAtOSA3NiAtMyAzIC00MiAxNCAtODYgMjMgLTU3IDEyIC04MyAxNCAtODkgNnoiLz4KPHBhdGggZD0iTTI3MjEgNDI3MSBjLTQgLTMgLTggLTI0IC03IC00NSAxIC00MyAtNCAtNDEgMTAxIC00NiA3OCAtNCA3NyAtNAo3MCAzNiAtNyA0OSAtOCA1MCAtNTIgNTMgLTIxIDEgLTUzIDMgLTcxIDUgLTE3IDEgLTM2IDAgLTQxIC0zeiIvPgo8cGF0aCBkPSJNMjk0OSA0MjQ4IGMtNSAtNDQgLTQgLTcwIDEgLTc4IDUgLTkgMzEgLTE1IDEwMSAtMjQgMTkgLTMgNTAgLTggNzAKLTExIDM1IC02IDM3IC00IDQxIDI0IDYgMzkgLTcgNzAgLTI5IDY5IC0xMCAwIC0zMSAyIC00OCA2IC0xNiAzIC01MCA5IC03NQoxMiAtMjQgMyAtNDggOCAtNTIgMTAgLTQgMyAtOSAtMSAtOSAtOHoiLz4KPHBhdGggZD0iTTI3MzggNDA2MiBjLTE2IC0zIC0yMCAtMjQgLTEyIC02OCAzIC0xOCAxMSAtMjEgNTEgLTIyIDI3IDAgNzQgLTMKMTA2IC02IDMxIC0yIDU4IC0yIDU4IDIgNiAzOCA2IDYwIDAgNzEgLTggMTIgLTE2NyAzMCAtMjAzIDIzeiIvPgo8cGF0aCBkPSJNMzAwOCA0MDMzIGMtMyAtNCAtMyAtMTggLTIgLTMwIDEgLTEzIDIgLTMxIDMgLTQyIDEgLTE5IDUgLTIwIDEzNgotMzcgMzAgLTQgMzAgLTMgMjcgMzkgLTUgNTAgLTEwIDU0IC03NyA2MiAtMjcgNCAtNTcgOSAtNjcgMTEgLTkgMyAtMTggMSAtMjAKLTN6Ii8+CjxwYXRoIGQ9Ik0yNTUyIDMyNjMgYy03IC0xNSAtMzkgLTEyMiAtNDcgLTE1OCAtMSAtNSAtOCAtMzAgLTE1IC01NSAtNyAtMjUKLTE0IC00OSAtMTUgLTU1IC01IC0yNCAtMzcgLTE0MSAtNDMgLTE1NSAtMyAtOCAtNyAtMjIgLTggLTMwIC03IC00MCAtMjgKLTEwNiAtMzYgLTExNSAtNSAtNiAtMTExIC0xMCAtMjYxIC0xMiAtMTM5IC0xIC0yNjAgLTIgLTI3MSAtMiAtMjYgLTEgLTYgLTIxCjE4MCAtMTc4IDI3IC0yMyA1OSAtNTAgNzEgLTYwIDExIC0xMCAzOCAtMzIgNjAgLTUwIDIxIC0xNyA1NSAtNDYgNzYgLTY1IGwzOAotMzMgLTY3IC0yMzAgYy0zNiAtMTI2IC02OCAtMjM5IC02OSAtMjUwIC0yIC0xMSAtOCAtMzIgLTE0IC00NyAtNiAtMTYgLTgKLTI4IC01IC0yOCAyIDAgMCAtOSAtNiAtMTkgLTYgLTEyIC02IC0yMiAtMSAtMjUgNSAtNCAxMSAtMyAxMyAyIDEgNCAyNiAyNQo1MyA0NyAyOCAyMiA1MiA0MiA1NSA0NSAxNCAxNSAyODkgMjM5IDMwNyAyNTAgMTkgMTIgMzAgNiAxMjkgLTc2IDYwIC00OSAxMTgKLTk2IDEyOSAtMTA2IDk1IC04MCAxODMgLTE1MSAxOTYgLTE1OCAxNCAtOCAxMyAyIC02IDcxIC0xMyA0NCAtMjMgODIgLTI0IDg0CjAgMyAtMSA2IC0yIDggMCAxIC0yIDkgLTQgMTcgLTIgOCAtMjcgOTYgLTU1IDE5NSAtMjggOTkgLTUyIDE4OSAtNTQgMjAwIC0xCjExIDkgMzAgMjMgNDMgNDcgNDIgMTM1IDExOSAyMjEgMTkyIDE2NiAxNDEgMTkwIDE2MyAxODUgMTY4IC0zIDMgLTEyNiA2Ci0yNzMgNyAtMTQ3IDEgLTI3MCAzIC0yNzQgNCAtNSAwIC04IDkgLTggMTkgMCAxMCAtOSA0NiAtMjAgNzkgLTExIDM0IC0yMSA2OQotMjMgNzkgLTEgMTEgLTYgMjQgLTkgMzAgLTQgNiAtOSAyMSAtMTEgMzUgLTYgMzEgLTk3IDM0MiAtMTAyIDM0NyAtMiAyIC04Ci01IC0xMyAtMTV6IG03MyAtNTY4IGMxOSAtNTUgMzkgLTEwNiA0NCAtMTEzIDQgLTcgMzAgLTE1IDU3IC0xNyAyNyAtMiA4MyAtNwoxMjQgLTEwIDQxIC0zIDc2IC04IDc4IC0xMCAyIC0yIC00MSAtNDkgLTk2IC0xMDQgLTEwNSAtMTA1IC0xMDYgLTEwNyAtODYKLTE3MyA2IC0yMCAxNCAtNTQgMjAgLTkxIDMgLTE1IDExIC01MCAxOCAtNzcgNyAtMjggMTAgLTUwIDYgLTUwIC0xMSAwIC0xMTQKNzIgLTExOCA4MiAtMiA0IC04IDggLTE0IDggLTUgMCAtMjQgMTEgLTQxIDI0IC0xOCAxMiAtMzcgMjYgLTQzIDI5IC03IDQgLTYwCi0yNyAtMTE4IC02OCAtMTI2IC04OCAtMTMxIC05MSAtMTI0IC03OSA0IDUgOSAyNSAxMiA0NCAzIDE5IDggNDYgMTEgNjAgMyAxNAo4IDM2IDExIDUwIDMgMTQgMTEgNDggMTggNzcgMTcgNjMgMTggNjEgLTEwNSAxODAgLTQ5IDQ3IC04OCA4NyAtODYgODkgMSAyCjQzIDUgOTIgOCA4NyA2IDEzMyAxMiAxNjUgMjEgOSAzIDM1IDYyIDY0IDE0NiBsNDkgMTQyIDEzIC0zNCBjNyAtMTkgMjkgLTc5CjQ5IC0xMzR6Ii8+CjxwYXRoIGQ9Ik0xNDgxIDMxMDggYy04NiAtMTAxIC0xMjAgLTE4OCAtMTI1IC0zMjAgLTMgLTY2IC0xMiAtNzQgLTQ2IC00MwotMjQgMjEgLTEwOSA1NSAtMTE1IDQ1IC05IC0xNCAtMjMgLTEzMyAtMTkgLTE2MCA2IC0zNyAxMyAtODIgMTkgLTExMCAxMCAtNTEKNjYgLTE0OCAxMTEgLTE5MiAyNSAtMjUgNzQgLTYwIDEwOSAtNzYgNjMgLTMxIDc1IC00NyA3NSAtMTAxIDAgLTIyIC0xIC0yMwotMjMgLTggLTMwIDE5IC0xMjIgNDcgLTE1NyA0NyAtMjUgMCAtMjYgLTIgLTI0IC01MSA0IC03MCAxMSAtMTA5IDMwIC0xNjYgNDIKLTEyMiAxNTQgLTIzMyAyNjQgLTI1OSAxOSAtNCAzOCAtOSA0MyAtMTAgNCAtMSAxNCAtMiAyMiAtMyAxNiAtMSAzOSAtMzMgNTAKLTcwIDYgLTIxIDUgLTIzIC0xMSAtMTYgLTI4IDExIC0xMzkgMTggLTE2OSAxMSAtMjEgLTUgLTI0IC0xMSAtMjAgLTM5IDEwCi04MCA2MCAtMTg2IDExNyAtMjQ4IDI4IC0zMSAxMDIgLTgxIDE0NSAtOTggMTcgLTcgNjQgLTE0IDEwNSAtMTUgODIgLTMgOTcKLTkgMTIzIC00OCBsMTcgLTI4IC01MSAwIGMtNDggMCAtMTM2IC0yMyAtMTU0IC00MCAtNSAtNCA1IC0zNyAyMiAtNzMgNDAgLTgzCjEyMSAtMTY2IDIwMSAtMjA1IDU0IC0yNiA3MCAtMjkgMTQwIC0yNiA0MyAxIDg3IDcgOTggMTMgMTIgNiAyOCAxMSAzNiAxMSAxNAowIDE2MCAtMTE5IDE3OCAtMTQ0IDQgLTUgLTE4IC0yOSAtNDggLTUyIGwtNTQgLTQyIDM0IC0yNSBjMzYgLTI4IDQwIC0yNyAxMTUKMjYgbDQwIDI5IDU1IC00MiA1NiAtNDIgMzUgMjMgYzQxIDI4IDQyIDM0IDE0IDUwIC0xMiA2IC0zNSAyNSAtNTEgNDEgbC0zMAozMSAzNSAzMSBjMzUgMzAgNTUgNDggMTA5IDkzIDI1IDIyIDI4IDIzIDkyIDkgNzkgLTE2IDE1OSAtMTMgMjA5IDggMjEgOCAzOQoxNCA0MCAxMyA0IC0zIDM2IDI0IDg2IDc0IDQ1IDQ2IDExMSAxNTQgMTExIDE4MyAwIDI1IC01MiA0NCAtMTQwIDUxIC0xOSAyCi00MSAzIC00OCA0IC0xMCAxIC05IDggMyAzMCAyMCA0MCAyNiA0MyAxMDggNDUgMTE2IDMgMTk3IDQxIDI2OSAxMjYgNjMgNzMKMTI5IDIzOSAxMDYgMjY3IC0xMSAxMyAtMTI3IDEyIC0xODAgLTIgLTI4IC03IC0yOCAtNyAtMTUgMjEgMjQgNTUgMzIgNjIgNzcKNjkgMTA3IDE1IDIyNiAxMDggMjgwIDIyMCAzMyA2OCAzOCA5MCA0NiAxOTMgbDYgNzQgLTQ5IC03IGMtMjYgLTMgLTcxIC0xNwotMTAwIC0zMCAtNTEgLTIzIC02NSAtMjQgLTU4IC0yIDIgNyA2IDI0IDkgMzkgNSAyMCAyMCAzMyA2OSA1NyAxMTcgNTcgMjAwCjE2NSAyMzEgMzAwIDIwIDg3IDkgMjUyIC0xNyAyNDcgLTIzIC01IC04OCAtMzYgLTExNyAtNTYgLTE1IC0xMSAtMzAgLTIwIC0zMgotMjAgLTMgMCAtNSAyOCAtNSA2MyAwIDEzOCAtNDcgMjU0IC0xMzggMzQ0IC01MCA1MCAtNTIgNDkgLTkxIC01MyAtMjkgLTc1Ci0zOSAtMjE0IC0yMiAtMjgzIDUgLTIwIDEwIC00MyAxMiAtNTEgNyAtMjYgNDYgLTkyIDg3IC0xNDYgMzAgLTQwIDM4IC01OCAzNAotNzYgLTMgLTEzIC03IC0zMiAtOSAtNDEgLTMgLTI1IC0xMiAtMjkgLTI2IC0xMiAtNyA4IC0xMCAxNSAtNiAxNSA4IDAgLTU3CjkzIC05NCAxMzYgLTE1IDE4IC0zMiAyOSAtMzcgMjUgLTEzIC05IC02OSAtMTI5IC04MCAtMTcxIC0xNiAtNjEgLTcgLTIxOSAxNgotMjgwIDE5IC01MCA4MyAtMTU0IDEwMiAtMTY1IDEwIC03IC0zMyAtMTA0IC00NSAtMTA1IC01IDAgLTcgMyAtMyA2IDcgOCAtMzgKMTI4IC02OSAxODEgLTIxIDM2IC0yNyA0MSAtNDIgMzIgLTI5IC0xOCAtOTkgLTEzMCAtMTE3IC0xODkgLTMwIC05NSAtMjUKLTI5MyA4IC0zMjYgNCAtNCA3IC0xNiA3IC0yNiAwIC0xMCA0IC0xOCA4IC0xOCA0IDAgMTMgLTE0IDIwIC0zMiAxMSAtMjkgOQotMzQgLTIyIC02OCBsLTMzIC0zNyAtNyA2NiBjLTMgMzYgLTE1IDkxIC0yNiAxMjEgLTExIDMwIC0yMCA1NiAtMjAgNTcgMCAxNQotMzYgLTYgLTgzIC00OCAtNDQgLTM5IC02NyAtNzEgLTk5IC0xMzcgLTM3IC03NyAtNDIgLTk1IC00NSAtMTcxIC0xIC01MCAzCi0xMTEgMTIgLTE0OCAyMCAtODYgMjAgLTg3IC0yMCAtMTE3IGwtMzUgLTI3IDMgNzMgYzMgNjYgLTUgMTQyIC0xOCAxNzYgLTEyCjMxIC0yMTUgLTExNSAtMjE1IC0xNTQgMCAtNyAtMyAtMTQgLTcgLTE2IC0xMSAtNCAtNDEgLTY1IC01NCAtMTA4IC02IC0xOQotMTIgLTgxIC0xNCAtMTM3IC0yIC01NiAtNiAtMTA3IC0xMCAtMTEzIC03IC0xMiAtNDIgLTEzIC00OSAtMiAtMyA1IC02IDUzCi03IDEwOCAtMSA2MSAtOCAxMTggLTE4IDE1MCAtMzggMTEzIC0xMTQgMjA1IC0yMTMgMjU1IGwtNTcgMjkgLTEyIC00MyBjLTYKLTIzIC0xMSAtODQgLTExIC0xMzUgbC0xIC05MiAtMzMgMzMgLTM0IDM0IDE4IDg0IGMxMCA0NiAxNyAxMDkgMTUgMTM5IC03CjEwOSAtNTYgMjI5IC0xMjQgMzAwIC0zMCAzMiAtODQgNzAgLTk4IDcwIC0xNiAwIC01MyAtMTM0IC01NSAtMTk3IGwtMSAtNTUKLTMyIDM4IGMtMTggMjAgLTMzIDQzIC0zMyA1MCAwIDcgMTEgMzQgMjQgNjEgMzIgNjMgMzggODkgNDMgMjAxIDQgNzggMSAxMDUKLTE3IDE2MyAtMTMgMzggLTI2IDY5IC0zMSA2OSAtNSAwIC05IDUgLTkgMTIgMCAxMyAtNzggMTE4IC04OCAxMTggLTE1IDAgLTYyCi04OCAtODUgLTE1OSBsLTI0IC03MyAtMTUgMzMgYy0zMCA2NCAtMzAgNzMgMCAxMDcgMzMgMzcgNzggMTI0IDg5IDE3MyA0IDE5CjcgODEgNyAxMzkgMCA4OCAtNCAxMTQgLTI0IDE2MCAtMzYgODIgLTYwIDExOSAtNzMgMTE0IC0xNyAtNyAtMTA1IC0xMjggLTEyMgotMTY3IGwtMTMgLTMyIC0xMCAyNiBjLTEwIDI2IC0xNSA1NSAtMTMgNzUgMCA2IDE0IDI3IDMxIDQ1IDM5IDQ1IDc1IDExMiA5MwoxNzUgMjkgOTcgMTYgMjU4IC0yNyAzNDkgLTI5IDYxIC0zOCA2MSAtOTUgLTd6IG0yMTY4IC0xNTMgYzEzIC0yNyAyNiAtNjEgMjkKLTc1IDcgLTMxIDcgLTE0NyAtMSAtMTgwIC0zIC0xNCAtNiAtMjggLTYgLTMyIC00IC0zNiAtNTkgNTggLTc5IDEzNSAtMTAgMzYKLTkgMTYyIDEgMjAyIDMgMTEgNiAyMSA2IDIzIDMgMTAgMzAgLTMwIDUwIC03M3ogbS0yMTE4IDU1IGMxIC01IDIgLTE5IDMgLTI5CjAgLTExIDQgLTIyIDcgLTI1IDggLTggMCAtMTE0IC0xMiAtMTYxIC0xNiAtNjEgLTYxIC0xMzcgLTczIC0xMjUgLTE2IDE2IC0yNAoxMzkgLTEyIDE5NyA3IDM2IDQyIDEyMSA1OCAxNDAgMTMgMTUgMjggMTcgMjkgM3ogbS0xNTAgLTQ3NiBjMTcgLTM0IDMzIC04MAozNiAtMTAxIDIgLTIxIDYgLTQzIDggLTQ5IDIgLTYgLTEgLTE3IC02IC0yNSAtMTggLTI2IC0xMjYgMTA3IC0xNDMgMTc2IC0yIDYKLTYgMjEgLTkgMzUgLTEyIDQ2IC0xNiA4MSAtMTEgOTUgMTAgMjQgOTEgLTYyIDEyNSAtMTMxeiBtMjQ4MyA3OSBjLTcgLTc5Ci02MSAtMTkxIC0xMTMgLTIzMiAtMjIgLTE3IC00MiAtMjggLTQ0IC0yNCAtMTQgMjIgNyAxMjQgMzkgMTg4IDI1IDQ5IDkzIDEyNQoxMTIgMTI1IDYgMCA4IC0yMyA2IC01N3ogbS0zMTQgLTIzNyBjMTggLTY3IDE4IC0xNDEgMCAtMjA4IGwtMTIgLTQyIC0xOSAyNApjLTM1IDQ3IC01NiAxMjkgLTUzIDIxNSAxIDQ0IDcgOTMgMTQgMTEwIGwxMSAyOSAyMSAtMzMgYzEyIC0xOCAyOCAtNjAgMzgKLTk1eiBtLTE4OTkgNzIgYzIxIC03OSA2IC0yMDcgLTMzIC0yNzcgLTI2IC00NyAtMjUgLTQ2IC0zOSAtMTkgLTE2IDMwIC0yMQoxNjQgLTggMjE0IDE0IDU0IDQ3IDEyNCA1OSAxMjQgNSAwIDE0IC0xOSAyMSAtNDJ6IG0yMDk0IC0zOTUgYy0xNyAtOTYgLTEyMgotMjI0IC0xOTQgLTIzOCAtMjkgLTUgLTI3IDE3IDggOTAgMzMgNjkgNzQgMTE3IDEzMyAxNTYgNDcgMzIgNjAgMjkgNTMgLTh6Cm0tMjMxOSAxMSBjNjcgLTMyIDE0MSAtMTM1IDE1OSAtMjIxIDggLTM5IDMgLTQwIC01MCAtMTIgLTY2IDM2IC0xMjMgMTExCi0xNDkgMTk3IC0xNyA1NyAtMTMgNjEgNDAgMzZ6IG0zNzYgLTEyMiBjMjggLTYyIDM2IC0xOTAgMTUgLTI1MiAtMTMgLTQwIC00MQotNjIgLTQzIC0zNSAwIDYgLTkgMjggLTE5IDUwIC0xMyAyOCAtMTggNjUgLTE5IDEyNSAtMSA4NCAxOSAxNzQgMzYgMTY0IDQgLTMKMTggLTI2IDMwIC01MnogbTE1NzcgLTYgYzE3IC02NCA3IC0xODQgLTIwIC0yNDAgLTEzIC0yNyAtMjggLTUwIC0zMyAtNTAgLTE4Ci0yIC0zNSA4OSAtMzIgMTY4IDMgOTYgMzkgMTk3IDYyIDE3NCA3IC03IDE3IC0zMCAyMyAtNTJ6IG0tMTMzMCAtNDUzIGMxMQotMjQgMjEgLTQ1IDIxIC00OCAwIC0zIDYgLTE4IDEzIC0zMyA4IC0xNiAxMyAtNTQgMTIgLTk3IC0zIC05NyAtNCAtMTA1IC0xMwotMTA1IC0xMyAwIC01OSA3NSAtODAgMTMyIC0xOSA1MCAtMjYgMTU0IC0xNSAxOTggNyAyOCAzNiA2IDYyIC00N3ogbTEwODYgNDUKYzMgLTEzIDUgLTM0IDUgLTQ4IDAgLTE0IDAgLTM4IC0xIC01NSAwIC00NiAtMjcgLTEyOCAtNTkgLTE3OCAtNDcgLTc0IC01MwotNjcgLTUyIDYyIDAgNjcgMTkgMTI5IDYxIDE5OSAyOSA0OCAzOCA1MiA0NiAyMHogbS0xNDQ1IC0yMCBjNDAgLTE4IDE0MQotMTEwIDEzOCAtMTI3IC0xIC0zIDUgLTE4IDEyIC0zNCA3IC0xNSAxMSAtMjkgOCAtMzIgLTE0IC0xNCAtMTIzIDQwIC0xNjggODQKLTQwIDM4IC05MCAxMTQgLTkwIDEzNiAwIDkgNTEgLTUgMTAwIC0yN3ogbTE4MzAgMiBjLTUgLTkgLTYgLTIwIC0zIC0yNCAzIC0zCjEgLTYgLTUgLTYgLTYgMCAtMTMgLTkgLTE3IC0yMCAtOSAtMjcgLTc3IC05MSAtMTI4IC0xMTcgLTQxIC0yMyAtOTcgLTMxIC05NwotMTUgMCAyMyAzNyA3OCA4MSAxMjIgNjggNjggMTk4IDExNSAxNjkgNjB6IG0tNjk1IC00MDcgYy05IC04NSAtNTAgLTE3NwotMTAwIC0yMjYgLTIxIC0yMCAtNDMgLTM3IC00OCAtMzcgLTE4IDAgMiAxMjMgMzEgMTg1IDI0IDQ5IDEwMiAxNDUgMTIwIDE0NQoyIDAgMSAtMzAgLTMgLTY3eiBtLTQ3MCAxMyBjMzIgLTMzIDU1IC03NCA3NCAtMTI5IDE5IC01NyAyOCAtMTQ3IDE0IC0xNDcgLTUKMCAtMjcgMTkgLTQ5IDQzIC00NSA0NiAtODEgMTE3IC05MCAxNzUgLTMgMjAgLTcgNDggLTkgNjEgLTggNDggMTAgNDcgNjAgLTN6Cm0tMzAxIC04MCBjNDYgLTE5IDcyIC00MCAxMTYgLTg5IDI3IC0zMSAzMSAtNDAgMTkgLTQ3IC0yMCAtMTMgLTk4IC0yIC0xNDYKMjEgLTQ2IDIyIC0xMzMgMTA0IC0xMzMgMTI1IDAgMTggOTQgMTEgMTQ0IC0xMHogbTExNTYgOSBjMCAtMjQgLTczIC05NSAtMTI0Ci0xMjAgLTYxIC0zMCAtMTU2IC00MiAtMTU2IC0yMCAwIDM4IDEwNiAxMjUgMTcxIDE0MyA0OSAxMiAxMDkgMTEgMTA5IC0zeiIvPgo8L2c+Cjwvc3ZnPgo=" alt="" aria-hidden="true">University of Texas at Austin</span>
+            <span class="cv-year">2025-</span>
+          </div>
+
+          <div class="cv-row cv-education">
+            <span>MS Applied Math</span>
+            <span class="institution"><img class="school-icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAMAAAAL34HQAAADAFBMVEVHcEyAAACAAACAAACAAACAAACAAACAAACAAACAAACAAACAAACAAACAAACAAACAAACAAACAAACAAACAAACAAACAAACAAACAAACAAACAAACAAACAAACAAACAAACAAACAAACAAACAAACAAACAAACAAACAAACAAACAAACAAACAAACAAACAAACAAACAAACAAACAAACAAACAAACAAACAAACAAACAAACAAACAAACAAACAAACAAACAAACAAACAAACAAACAAAD//////v7+/f2CAwOBAgKMFxf+/v79+/vnz8+FCQmNGRn9/PyiRUWDBQW+fX2ECAiBAQH8+fmOHBz69fWDBgb59PSGCwuLFhaTJSWAAQH+/PzatLSJEhLs2Njlysr79/fcubmbNTWeOzvr19f58/OEBwf48PCIDw+HDQ3p09P06emBAwPixcX9+vqYLy+ZMTHq1dXv3t7BgoLAgYHKlJTgwcGSIyORISHkycnevLz8+PjPn5/Wra2zZWXRoaHUqanFior16+vx4uLy5OTSpKTTp6f06Oj8+vrt29uVKiqlSkr27OyWKyvLl5e8eHi4cHC7dXXEh4eNGxvGjIyQHx/KlZXhwsKGDQ2nTk7IkJD37u737+++e3vy5eXHjo7z5+emTEz69vakSEiaMzO0aGj48fGwYGCtWlrOnZ2hQkK1amqXLS327e2KExPx4+Pmzc316uqIERGvXl6UKCjevb2gPz/u3d2/f3/69PS6c3OePT2UJyfhw8O2bGy2bW25cnLYsbHVq6u7d3ecODjatbXfv7+LFRXMmZmqU1PMmJiPHR3jx8edOjqrVlbv39+xYmKjRkbw4eGnTU379vaoUFDXr6/mzMyuXFzQoKCcNzfs2dnNm5v7+PjChYXJk5Pnzs6pUlKoUVHNmpqgQUHSpaWiRESyZGSsWFi9enrChITdu7uKFRW3b2+qVVXly8uzZ2fDhobIkZHbt7fXrq7btrbo0dGsV1fZs7OUKSmvX1/VqqqfPj6VKSmwX1+4b2/AgIBfMIRoAAAAP3RSTlMABgQd/Wz5oWgCEfW96pSoMu8U3AwnhvsumI43Y0TC13cJK/Hn0lk9OjDiSnshF8irXlKDT4oky3DOGrawnG7twuKTAAAaVUlEQVR42u2c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" alt="" aria-hidden="true">University of Chicago</span>
+            <span class="cv-year">2023-25</span>
+          </div>
+
+          <div class="cv-row cv-education">
+            <span>BS Mathematics</span>
+            <span class="institution"><img class="school-icon" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMzUiIGhlaWdodD0iMTM1IiBmaWxsPSJub25lIj48ZyBjbGlwLXBhdGg9InVybCgjY2xpcDBfMV8xMSkiPjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNMjkuOTEgMTEuMzQzYTY3LjMgNjcuMyAwIDEgMSA3NC43OCAxMTEuOTE1QTY3LjMgNjcuMyAwIDAgMSAyOS45MSAxMS4zNDN6bTQ4Ljg5NyA0OS44ODVjMTMuODYgNC44OTYgMTkuMjA1IDE2LjAxNiAxOS4yMDUgMzIuNTc2djE3LjI5NGgtNTQuNDlWMjAuOTg0aDI0LjE3M2M5LjE1IDAgMTIuOTc2IDEuNjA1IDE3LjI5OCA0Ljk1IDYuMjk3IDQuOTM1IDcuMjg2IDEyLjA5OCA3LjI4NiAxNS42OWExOS41OTQgMTkuNTk0IDAgMCAxLTQuNjkxIDEyLjk2MyAyMi4wMDcgMjIuMDA3IDAgMCAxLTguNzgxIDYuNjQxem02Ljg2MSAzMC44OTVjMC0xOC42MjgtNS45NjEtMjguODE4LTIxLjI4MS0yOC44MTh2LTQuNTMxaC4wOTRhMTUuNDE4IDE1LjQxOCAwIDAgMCAxMi4yNjctNS45NDVjMi44MTUtMy40MDUgMy4zOTItNi42MTUgMy41MjMtOS40ODFINjQuNDkzdi00LjQyNGgxNS42NDNhMTYuNDg1IDE2LjQ4NSAwIDAgMC0zLjM5Ny04LjI1NWMtMy41OC00LjQ1LTguNjUtNS4xOTctMTEuOTg3LTUuMTk3aC04LjkxNnY4MC43MThoOC42NTdWNzYuMDQyaDExLjM1djMwLjA5Mmg5LjgyNVY5Mi4xMjN6IiBmaWxsPSIjMEYyRDY5Ii8+PC9nPjxkZWZzPjxjbGlwUGF0aCBpZD0iY2xpcDBfMV8xMSI+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTAgMEgxMzQuNlYxMzQuNkgweiIvPjwvY2xpcFBhdGg+PC9kZWZzPjwvc3ZnPg==" alt="" aria-hidden="true">HSE University</span>
+            <span class="cv-year">2018-22</span>
+          </div>
+        </div>
+
+        <div class="cv-group">
+          <h3 class="cv-subheading">Academic Experience</h3>
+
+          <div class="cv-row cv-experience">
+            <span class="cv-role">RA</span>
+            <span>Department of Statistics</span>
+            <span class="cv-meta">Fall 2026 · UT Austin</span>
+          </div>
+
+          <div class="cv-row cv-experience">
+            <span class="cv-role">TA</span>
+            <span>Elements of Statistics</span>
+            <span class="cv-meta">Spring 2026 · UT Austin</span>
+          </div>
+
+          <div class="cv-row cv-experience">
+            <span class="cv-role">TA</span>
+            <span>Probability and Statistical Inference</span>
+            <span class="cv-meta">Fall 2025 · UT Austin</span>
+          </div>
+
+          <div class="cv-row cv-experience">
+            <span class="cv-role">TA</span>
+            <span>Stochastic Processes</span>
+            <span class="cv-meta">Fall 2024 · UChicago</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">2026 · Sergei Tikhonov · Website was created with <span class="codex">Codex</span></footer>
+  </main>
+</body>
+</html>
