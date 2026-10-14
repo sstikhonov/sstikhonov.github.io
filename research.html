@@ -318,35 +318,6 @@
 
     <svg class="symbol-library" aria-hidden="true" focusable="false">
       <defs>
-        <symbol id="icon-robust-statistics" viewBox="0 0 16 16">
-          <g fill="currentColor" stroke="none">
-            <circle cx="4.4" cy="5.2" r=".52"></circle>
-            <circle cx="6" cy="5.2" r=".52"></circle>
-            <circle cx="7.6" cy="5.2" r=".52"></circle>
-            <circle cx="3.4" cy="6.6" r=".52"></circle>
-            <circle cx="5.1" cy="6.6" r=".52"></circle>
-            <circle cx="6.8" cy="6.6" r=".52"></circle>
-            <circle cx="8.4" cy="6.6" r=".52"></circle>
-            <circle cx="3" cy="8" r=".52"></circle>
-            <circle cx="4.6" cy="8" r=".52"></circle>
-            <circle cx="6.2" cy="8" r=".52"></circle>
-            <circle cx="7.8" cy="8" r=".52"></circle>
-            <circle cx="9" cy="8" r=".52"></circle>
-            <circle cx="3.7" cy="9.5" r=".52"></circle>
-            <circle cx="5.4" cy="9.5" r=".52"></circle>
-            <circle cx="7" cy="9.5" r=".52"></circle>
-            <circle cx="8.5" cy="9.5" r=".52"></circle>
-            <circle cx="4.8" cy="10.8" r=".52"></circle>
-            <circle cx="6.4" cy="10.8" r=".52"></circle>
-            <circle cx="7.8" cy="10.8" r=".52"></circle>
-          </g>
-          <g fill="none" stroke="currentColor" stroke-width="1">
-            <circle cx="12" cy="3" r=".85"></circle>
-            <circle cx="14.1" cy="7.7" r=".85"></circle>
-            <circle cx="12.8" cy="12.6" r=".85"></circle>
-          </g>
-        </symbol>
-
         <symbol id="icon-bayes" viewBox="0 0 16 16">
           <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
             <path d="M1 13C2.2 13 3.1 2.5 5 2.5c1.4 0 1.8 6.3 2.6 7.1.8.8 1.5-4.5 2.9-4.5 2 0 2.8 7.9 4.5 7.9" stroke-width="1.2"></path>
@@ -374,9 +345,9 @@
         <div class="category-filters" aria-label="Filter publications by research category">
           <button class="filter-button" type="button" data-filter="all" aria-pressed="true">All</button>
 
-          <button class="filter-button" type="button" data-filter="robust-statistics" aria-pressed="false">
-            <svg class="category-icon" aria-hidden="true" focusable="false"><use href="#icon-robust-statistics"></use></svg>
-            Robust statistics
+          <button class="filter-button" type="button" data-filter="learning-theory" aria-pressed="false">
+            <svg class="category-icon" aria-hidden="true" focusable="false"><use href="#icon-proper-learning"></use></svg>
+            Learning Theory
           </button>
 
           <button class="filter-button" type="button" data-filter="bayes" aria-pressed="false">
@@ -384,17 +355,13 @@
             Bayes
           </button>
 
-          <button class="filter-button" type="button" data-filter="proper-learning" aria-pressed="false">
-            <svg class="category-icon" aria-hidden="true" focusable="false"><use href="#icon-proper-learning"></use></svg>
-            Proper learning
-          </button>
         </div>
 
         <div id="publication-list">
-          <article class="paper" data-categories="robust-statistics">
+          <article class="paper" data-categories="learning-theory">
             <div class="paper-category">
-              <svg class="category-icon" aria-hidden="true" focusable="false"><use href="#icon-robust-statistics"></use></svg>
-              <span>Robust statistics</span>
+              <svg class="category-icon" aria-hidden="true" focusable="false"><use href="#icon-proper-learning"></use></svg>
+              <span>Learning Theory</span>
             </div>
 
             <div>
@@ -410,10 +377,10 @@
             </div>
           </article>
 
-          <article class="paper" data-categories="proper-learning">
+          <article class="paper" data-categories="learning-theory">
             <div class="paper-category">
               <svg class="category-icon" aria-hidden="true" focusable="false"><use href="#icon-proper-learning"></use></svg>
-              <span>Proper learning</span>
+              <span>Learning Theory</span>
             </div>
 
             <div>
@@ -442,9 +409,8 @@
     const papers = [...document.querySelectorAll("[data-categories]")];
     const emptyState = document.querySelector("#empty-state");
     const categoryNames = {
-      "robust-statistics": "Robust statistics",
-      bayes: "Bayes",
-      "proper-learning": "Proper learning"
+      "learning-theory": "Learning Theory",
+      bayes: "Bayes"
     };
 
     filterButtons.forEach((button) => {
